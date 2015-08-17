@@ -1,0 +1,4 @@
+int64 strength
+int64 ShootPos
+---
+int64 ShootIsDone

@@ -1,0 +1,35 @@
+### Recommended operating environment
+1. Ubuntu 14.04; 
+2. ROS Indigo; 
+3. Gazebo 5.0 or 5.1
+4. gazebo_ros_pkgs
+NOTE:
+If you choose "desktop-full" install of ROS Indigo, there is a Gazebo 2.0 included initially. In order to install Gazebo 5.0/5.1, you should first remove Gazebo 2.0 by running:
+    $ sudo apt-get remove gazebo2*
+Then you should be able to install Gazebo 5.0 now.
+To install gazebo_ros_pkgs compatible with Gazebo 5.0/5.1, run this command:
+    $ sudo apt-get install ros-indigo-gazebo5-ros-pkgs ros-indigo-gazebo5-ros-control
+    
+Other versions of Ubuntu, ROS or Gazebo may also work, but we have not tested yet.
+
+### Complie
+1. Go to the root directory (single_nubot_gazebo_ws)
+2. If you already have CMakeLists.txt in the "src" folder, then you can skip this step. 
+   If not, run these commands:
+    $ cd src 
+    $ catkin_init_workspace
+    $ cd ..
+3. $ ./configure
+4. $ catkin_make --pkg nubot_common
+5. $ catkin_make
+
+### Run
+1. Go to the root directory (single_nubot_gazebo_ws)
+2. source the setup.bash file: 
+    $ source devel/setup.bash
+Note: Every time you open a new terminal, you have to do this step. You can also write this command into the ~/.bashrc file so that you don't have to source it every time.
+3.  $ roslaunch nubot_gazebo sdf_nubot.launch
+Additional:
+    a. to launch an empty soccer field: $ roslaunch nubot_gazebo empty_field.launch
+    b. to launch the simulation world with rqt_plot of nubot or ball's velocity:
+        $ roslaunch nubot_gazebo sdf_nubot.launch plot:=true

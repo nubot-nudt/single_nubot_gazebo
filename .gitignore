@@ -1,0 +1,6 @@
+*~
+*.user
+build/
+devel/
+*.autosave
+CMakeLists.txt.user.*

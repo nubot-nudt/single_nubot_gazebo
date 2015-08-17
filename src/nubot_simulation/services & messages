@@ -1,0 +1,56 @@
+    1. world_model_node
+        <advertise>     /worldmodel/worldmodelinfo      nubot_common::WorldModelInfo
+        
+        <subscribe>     /omnivision/OmniVisionInfo
+        <subscribe>     /nubotcontrol/strategy
+        <subscribe>     /nubotcontrol/target
+        <subscribe>     /front_vision/FrontBallInfo
+        <subscribe>     /kinect/ballinfo
+        
+    2. nubot_control_node
+        <advertise>     /nubotcontrol/velcmd     nubot_common::VelCmd
+        <advertise>     /nubotcontrol/strategy  nubot_common::StrategyInfo
+        <advertise>     /nubotcontrol/target    nubot_common::TargetInfo
+        <advertise>     /nubotcontrol/debug      nubot_control::DebugInfo
+        
+        <subscribe>     /worldmodel/worldmodelinfo
+        <subscribe>     /kinect/ballinfo
+        
+        <service_client>    /BallHandle      nubot_common::BallHandle
+        <service_client>    /Shoot           nubot_common::Shoot
+     
+    3. nubot_gazebo
+        <advertise>     omnivision/OminiVisionInfo
+        
+        <subscribe>     /gazebo/model_states
+        <subscribe>     nubotcontrol/velcmd
+        
+        <service_server>    BallHandle
+        <service_server>    Shoot   
+        
+    4. nubot_hwcontroller_node
+        <service_server>     /BallHandle      nubot_common::BallHandle
+        <service_server>     /Shoot           nubot_common::Shoot
+        
+        <subscribe>             /nubotcotrol/velcmd
+        
+    5. nubot_teleop_joy
+        <advertise>     /nubotcotrol/velcmd     nubot_common::VelCmd
+        
+        <subscribe>     /joy
+        <subscribe>     /omnivision/OminiVisionInfo
+        
+        <service_client>    /BallHandle      nubot_common::BallHandle
+        <service_client>    /Shoot           nubot_common::Shoot
+    
+    6. omnivision_node
+        <advertise>     /omnivision/OmniVisionInfo      nubot_common::OminiVisionInfo
+        
+        <subscribe>     /camera/image_raw
+        <subscribe>     /nubotdriver/odoinfo
+        
+    7.front_vision_node
+        <advertise>     /front_vision/FrontBallInfo     nubot_common::FrontBallInfo
+        
+        <subscribe>     /front_vision/image_raw
+       

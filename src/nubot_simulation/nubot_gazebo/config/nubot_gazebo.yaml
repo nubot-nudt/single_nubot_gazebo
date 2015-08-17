@@ -1,0 +1,17 @@
+# Uses ISO units. For example, use 'm' for length.
+field:
+  length: 18                     # Use integer!   used in spawn_model_script
+  width: 12                      # Use integer!  used in spawn_model_script
+  robot_prefix: "bot"            # use this mark to represent black obstacles
+  
+nubot:
+  number: 1                      # number of nubots spawned
+  max_linear_vel: 3.0            # default nubot linear velocity (m/s)
+  max_angular_vel: 120.0         # default nubot angular velocity (degree/s)
+  distance_thres: 0.50           # theshold distance between nubot and football below which dribble ball
+  angle_thres: 30.0              # kicking mechanism aligning with football; allowed maximum angle error in degrees
+  kick_ball_vel: 20              # initial velocity of the ball kicked
+
+football:
+  name: "football"                   # football model name
+  chassis_link: "football::ball"     # football body link name  

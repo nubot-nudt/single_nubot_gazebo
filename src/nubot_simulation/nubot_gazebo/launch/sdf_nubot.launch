@@ -1,0 +1,38 @@
+<launch>
+  <rosparam file="$(find nubot_gazebo)/config/nubot_gazebo.yaml" command="load" />
+  
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/> 
+  <arg name="verbose" default="false"/>
+
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name"  value="$(find nubot_gazebo)/worlds/robocup15MSL.world"/>
+    <arg name="verbose" 	value="true"/>
+    <arg name="paused"      value="true"/>
+  </include>
+	
+  <!--Use a bash script to spawn models. Configuration can be set in nubot_gazebo.yaml-->
+  <node name="spawn_model" pkg="nubot_gazebo" type="sdf_spawn_model.sh"/>
+  
+<!--  /////////////////// Below are debug tools ////////////////////////////  -->    
+
+  <!--Use rqt_console to watch info from gazebo-->
+  <node name="rqt_console" pkg="rqt_console" type="rqt_console" args="--on-top"/>
+  <!-- plot model velocity if "plot" is true -->  
+  <arg name="plot"  default="false"/>
+  <group if="$(arg plot)">
+    <include file="$(find nubot_gazebo)/launch/debug.launch">
+        <arg name="nubot_linear_vel" value="true" />
+        <arg name="ball_linear_vel"  value="true" />
+        <arg name="separate"         value="false" />
+    </include>
+  </group>
+   
+</launch>
+
+
