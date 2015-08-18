@@ -98,9 +98,7 @@ void NubotGazebo::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   this->football_model_ = world_->GetModel(football_name_);
 
   if (!football_model_)
-  {
     ROS_ERROR("model [%s] does not exist", football_name_.c_str());
-  }
   else 
   {
     football_link_ = football_model_->GetLink(football_chassis_);
@@ -204,6 +202,8 @@ void NubotGazebo::service_queue_thread()
       this->service_queue_.callAvailable(ros::WallDuration(timeout));
 }
 
+// Actually PID tuning is not useful in this simulation since realistic physics mechanisms are not simulated
+// PID is not used in this code but it is commented in function dribble_ball();
 void NubotGazebo::config(nubot_gazebo::NubotGazeboConfig &config, uint32_t level)
 {
     dribble_P_      = config.P;
@@ -213,7 +213,7 @@ void NubotGazebo::config(nubot_gazebo::NubotGazeboConfig &config, uint32_t level
     I_term_min_     = config.I_min;
     cmd_max_        = config.cmd_max;
     cmd_min_        = config.cmd_min;
-    ROS_FATAL("Reconfig request: P:%f I:%f D:%f I_term_max:%f I_term_min:%f",
+    ROS_INFO("Reconfig request: P:%f I:%f D:%f I_term_max:%f I_term_min:%f",
               dribble_P_, dribble_I_, dribble_D_, I_term_max_, I_term_min_);
     dribble_pid_.Init(dribble_P_, dribble_I_, dribble_D_, I_term_max_, I_term_min_, cmd_max_, cmd_min_);
 }
@@ -248,26 +248,18 @@ bool NubotGazebo::update_model_info(void)
     rosnode_->param("/nubot/distance_thres",    dribble_distance_thres_,    0.10);
     rosnode_->param("/nubot/angle_thres",      dribble_angle_thres_,      0.01);
 
-    // Depends on nubot hardware configuration
    if(ModelStatesCB_flag_)
    {
         receive_sim_time_ = world_->GetSimTime();
-        // Get football and nubot's pose and twist
+      // Get football and nubot's pose and twist
 #if 1 // no Gaussian noise
         football_state_.model_name = football_name_ ;
         football_state_.pose.position.x     =  model_states_msg_.pose[football_index_].position.x;
         football_state_.pose.position.y     =  model_states_msg_.pose[football_index_].position.y;
         football_state_.pose.position.z     =  model_states_msg_.pose[football_index_].position.z;
-//        football_state_.pose.orientation.w  =  model_states_msg_.pose[football_index_].orientation.w;
-//        football_state_.pose.orientation.x  =  model_states_msg_.pose[football_index_].orientation.x;
-//        football_state_.pose.orientation.y  =  model_states_msg_.pose[football_index_].orientation.y;
-//        football_state_.pose.orientation.z  =  model_states_msg_.pose[football_index_].orientation.z;
         football_state_.twist.linear.x      =  model_states_msg_.twist[football_index_].linear.x;
         football_state_.twist.linear.y      =  model_states_msg_.twist[football_index_].linear.y;
         football_state_.twist.linear.z      =  model_states_msg_.twist[football_index_].linear.z;
-//        football_state_.twist.angular.x     =  model_states_msg_.twist[football_index_].angular.x;
-//        football_state_.twist.angular.y     =  model_states_msg_.twist[football_index_].angular.y;
-//        football_state_.twist.angular.z     =  model_states_msg_.twist[football_index_].angular.z;
 
         nubot_state_.model_name = model_name_ ;
         nubot_state_.pose.position.x    =  model_states_msg_.pose[nubot_index_].position.x;
@@ -290,16 +282,9 @@ bool NubotGazebo::update_model_info(void)
         football_state_.pose.position.x     =  model_states_msg_.pose[football_index_].position.x + scalar*rand_.GetDblNormal(0,1);
         football_state_.pose.position.y     =  model_states_msg_.pose[football_index_].position.y + scalar*rand_.GetDblNormal(0,1);
         football_state_.pose.position.z     =  model_states_msg_.pose[football_index_].position.z;
-//        football_state_.pose.orientation.w  =  model_states_msg_.pose[football_index_].orientation.w;
-//        football_state_.pose.orientation.x  =  model_states_msg_.pose[football_index_].orientation.x;
-//        football_state_.pose.orientation.y  =  model_states_msg_.pose[football_index_].orientation.y;
-//        football_state_.pose.orientation.z  =  model_states_msg_.pose[football_index_].orientation.z;
         football_state_.twist.linear.x      =  model_states_msg_.twist[football_index_].linear.x + scalar*rand_.GetDblNormal(0,1);
         football_state_.twist.linear.y      =  model_states_msg_.twist[football_index_].linear.y + scalar*rand_.GetDblNormal(0,1);
         football_state_.twist.linear.z      =  model_states_msg_.twist[football_index_].linear.z;
-//        football_state_.twist.angular.x     =  model_states_msg_.twist[football_index_].angular.x;
-//        football_state_.twist.angular.y     =  model_states_msg_.twist[football_index_].angular.y;
-//        football_state_.twist.angular.z     =  model_states_msg_.twist[football_index_].angular.z;
 
         nubot_state_.model_name = model_name_ ;
         nubot_state_.pose.position.x    =  model_states_msg_.pose[nubot_index_].position.x + scalar*rand_.GetDblNormal(0,1);
@@ -320,15 +305,12 @@ bool NubotGazebo::update_model_info(void)
         // calculate vector from nubot to football
         nubot_football_vector_ = football_state_.pose.position - nubot_state_.pose.position;
         nubot_football_vector_.z = 0;                                                       // not consider z element
-        //ROS_FATAL("nubot_football_vector:%f %f %f",nubot_football_vector_.x,nubot_football_vector_.y,nubot_football_vector_.z);
         nubot_football_vector_length_ = nubot_football_vector_.GetLength();                 // not consider z element
-        //ROS_INFO("nubot_football_vector_length_:%f", nubot_football_vector_length_);
 
         // transform kick_vector_nubot in world frame
         math::Quaternion    rotation_quaternion = nubot_state_.pose.orientation;
         math::Matrix3       RotationMatrix3 = rotation_quaternion.GetAsMatrix3();
         kick_vector_world_ = RotationMatrix3 * kick_vector_nubot; // vector from nubot origin to kicking mechanism in world frame
-        //ROS_INFO("kick_vector_world_: %f %f %f",kick_vector_world_.x, kick_vector_world_.y, kick_vector_world_.z);
         return 1;
    }
    else
@@ -371,7 +353,6 @@ bool NubotGazebo::ball_handle_control_service(nubot_common::BallHandle::Request 
         }
         else
             res.BallIsHolding = true;
-
     }
     else
         res.BallIsHolding = get_is_hold_ball();

@@ -1,3 +1,6 @@
+### Description
+This simulation system can simulate one robot soccer player for RoboCup Middle Size League. It can be adapted for other purposes.
+
 ### Recommended operating environment
 1. Ubuntu 14.04; 
 2. ROS Indigo; 
@@ -13,7 +16,7 @@ To install gazebo_ros_pkgs compatible with Gazebo 5.0/5.1, run this command:
 Other versions of Ubuntu, ROS or Gazebo may also work, but we have not tested yet.
 
 ### Complie
-1. Go to the root directory (single_nubot_gazebo_ws)
+1. Go to the package root directory (single_nubot_gazebo_ws)
 2. If you already have CMakeLists.txt in the "src" folder, then you can skip this step. 
    If not, run these commands:
     $ cd src 
@@ -24,7 +27,7 @@ Other versions of Ubuntu, ROS or Gazebo may also work, but we have not tested ye
 5. $ catkin_make
 
 ### Run
-1. Go to the root directory (single_nubot_gazebo_ws)
+1. Go to the package root directory (single_nubot_gazebo_ws)
 2. source the setup.bash file: 
     $ source devel/setup.bash
 Note: Every time you open a new terminal, you have to do this step. You can also write this command into the ~/.bashrc file so that you don't have to source it every time.

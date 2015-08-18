@@ -5,7 +5,6 @@
 #include <gazebo/gazebo.hh>             // the core gazebo header files, including gazebo/math/gzmath.hh
 #include <gazebo/physics/physics.hh>
 #include <gazebo/common/common.hh>
-// #include <gazebo/transport/TransportTypes.hh>
 #include <gazebo/common/Plugin.hh>
 #include <gazebo/common/Events.hh>
 
@@ -13,8 +12,6 @@
 #include <ros/subscribe_options.h>
 #include <gazebo_msgs/ModelStates.h>
 #include <gazebo_msgs/ModelState.h>
-#include "nubot_common/OminiVisionInfo.h"
-#include "nubot_common/FrontBallInfo.h"
 #include "nubot_common/VelCmd.h"
 #include "nubot_common/Shoot.h"
 #include "nubot_common/BallHandle.h"
@@ -99,11 +96,6 @@ namespace gazebo{
         gazebo_msgs::ModelStates    model_states_msg_;          // Container for the ModelStates msg      
         model_state                 nubot_state_;
         model_state                 football_state_;
-        nubot_common::BallInfo        ball_info_;
-        nubot_common::RobotInfo       robot_info_;
-        nubot_common::ObstaclesInfo   obstacles_info_;
-        nubot_common::OminiVisionInfo omin_vision_info_;
-        nubot_common::FrontBallInfo   front_ball_info_;
         common::Time                  receive_sim_time_;
         common::Time                  last_current_time_;
         std_msgs::Float64MultiArray   debug_msgs_;

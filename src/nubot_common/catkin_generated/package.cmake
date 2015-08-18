@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "nubot_common")
-set(nubot_common_MAINTAINER "nubot <nubot.nudt@gmail.com>, nubot <nubot.nudt@outlook.com>")
-set(nubot_common_DEPRECATED "")
-set(nubot_common_VERSION "0.0.0")
-set(nubot_common_BUILD_DEPENDS "message_filters" "message_generation" "roscpp" "rospy" "std_msgs" "std_srvs" "geometry_msgs")
-set(nubot_common_RUN_DEPENDS "message_filters" "roscpp" "rospy" "std_msgs" "std_srvs" "geometry_msgs")
-set(nubot_common_BUILDTOOL_DEPENDS "catkin" "catkin")
