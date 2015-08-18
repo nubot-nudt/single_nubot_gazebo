@@ -39,24 +39,12 @@ The robot movement is realized by a Gazebo model plugin which is called "NubotGa
 Basically, this plugin subscribes to topic "nubotcontrol/velcmd" for omnidirecitonal movement and subscribes to service "BallHandle" and "Shoot" for ball-dribbling and ball-kicking respectively. You can customize this code for your robot based on these messages and services as a convenient interface.
 
 As for ball-dribbling, there are three ways for a robot to dribble a ball, i.e.
-(a). Setting ball pose continually. 
-This is the most accurate one; nubot would hardly lose control of the ball, but the visual effect is not very good(the ball does not rotate).
-(b). Setting ball secant velocity.  
-This is less acurate than method (a) but better than method (c). 
-(c). Setting ball tangential velocity. 
-This is the least accurate. If the robot moves fast, such as 3 m/s, it would probably lose control of the ball. However, this method achieves the best visual effect under low-speed conditon.
             
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
-
-As for ball-dribbling, there are three ways for a robot to dribble a ball, i.e.  
-| Method                              |  Description |
-| ----------------------------------- | --------------------------------------------|
-| (a) Setting ball pose continually.  | This is the most accurate one; nubot would hardly lose control of the ball, but the visual effect is not very good(the ball does not rotate). |
-| (b) Setting ball secant velocity.  | This is less acurate than method (a) but better than method (c). |
-| (c) Setting ball tangential velocity. | This is the least accurate. If the robot moves fast, such as 3 m/s, it would probably lose control of the ball. However, this method achieves the best visual effect under low-speed condition. |
+Method  | Description
+:-----: | -------------
+(a) Setting ball pose continually  | This is the most accurate one; nubot would hardly lose control of the ball, but the visual effect is not very good (the ball does not rotate).
+(b) Setting ball secant velocity  | This is less acurate than method (a) but more accurate than method (c).
+(c) Setting ball tangential velocity |  This is the least accurate. If the robot moves fast, such as 3 m/s, it would probably lose control of the ball. However, this method achieves the best visual effect under low-speed condition.
 **By default, we use method (c) for ball-dribbling.**
     
  As for Gaussian noise, **by default, Gaussian noise is NOT added**, but you can add it by changing the flag in nubot_gazebo.cc in function update_model_info();
