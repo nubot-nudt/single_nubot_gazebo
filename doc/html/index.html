@@ -24,7 +24,6 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">single_nubot_gazebo
    </div>
-   <div id="projectbrief">This simulation system can simulate one robot soccer player for RoboCup Middle Size League. It can be adapted for other purposes.</div>
   </td>
  </tr>
  </tbody>
@@ -65,7 +64,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -79,10 +78,80 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">single_nubot_gazebo Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><p>This simulation system can simulate one robot soccer player for RoboCup Middle Size League. It can be adapted for other purposes.</p>
+<h1>Recommended Operating Environment</h1>
+<ol type="1">
+<li>Ubuntu 14.04;</li>
+<li>ROS Indigo;</li>
+<li>Gazebo 5.0 or 5.1;</li>
+<li>gazebo_ros_pkgs;</li>
+</ol>
+<blockquote class="doxtable">
+<p><b>NOTE:</b> If you choose "desktop-full" install of ROS Indigo, there is a Gazebo 2.0 included initially. In order to install Gazebo 5.0/5.1, you should first remove Gazebo 2.0 by running:</p>
+<p></p>
+</blockquote>
+<p><code>$ sudo apt-get remove gazebo2*</code> </p>
+<blockquote class="doxtable">
+<p>Then you should be able to install Gazebo 5.0 now. To install gazebo_ros_pkgs compatible with Gazebo 5.0/5.1, run this command:</p>
+<p></p>
+</blockquote>
+<p><code>$ sudo apt-get install ros-indigo-gazebo5-ros-pkgs ros-indigo-gazebo5-ros-control</code></p>
+<p>Other versions of Ubuntu, ROS or Gazebo may also work, but we have not tested yet.</p>
+<h1>Complie</h1>
+<ol type="1">
+<li>Go to the package root directory (single_nubot_gazebo)</li>
+<li><p class="startli">If you already have CMakeLists.txt in the "src" folder, then you can skip this step. If not, run these commands:</p>
+<p class="startli">``` $ cd src $ catkin_init_workspace $ cd .. ```</p>
+</li>
+<li>$ ./configure</li>
+<li>$ catkin_make &ndash;pkg <a class="el" href="namespacenubot__common.html">nubot_common</a></li>
+<li>$ catkin_make</li>
+</ol>
+<h1>Tutorials</h1>
+<h2>Part I. Overview</h2>
+<p>The robot movement is realized by a Gazebo model plugin which is called "NubotGazebo" generated by source files "nubot_gazebo.cc" and "nubot_gazebo.hh". Basically the essential part of the plugin is realizing basic motions: omnidirectional locomotion, ball-dribbling and ball-kicking.</p>
+<p>Basically, this plugin subscribes to topic "nubotcontrol/velcmd" for omnidirecitonal movement and subscribes to service "BallHandle" and "Shoot" for ball-dribbling and ball-kicking respectively. You can customize this code for your robot based on these messages and services as a convenient interface.</p>
+<p>As for ball-dribbling, there are three ways for a robot to dribble a ball, i.e.</p>
+<table class="doxtable">
+<tr>
+<th align="center">Method </th><th>Description  </th></tr>
+<tr>
+<td align="center">(a) Setting ball pose continually </td><td>This is the most accurate one; nubot would hardly lose control of the ball, but the visual effect is not very good (the ball does not rotate). </td></tr>
+<tr>
+<td align="center">(b) Setting ball secant velocity </td><td>This is less acurate than method (a) but more accurate than method (c). </td></tr>
+<tr>
+<td align="center">(c) Setting ball tangential velocity </td><td>This is the least accurate. If the robot moves fast, such as 3 m/s, it would probably lose control of the ball. However, this method achieves the best visual effect under low-speed condition. </td></tr>
+</table>
+<p><b>By default, we use method (c) for ball-dribbling.</b></p>
+<p>As for Gaussian noise, <b>by default, Gaussian noise is NOT added</b>, but you can add it by changing the flag in <a class="el" href="nubot__gazebo_8cc.html">nubot_gazebo.cc</a> in function update_model_info();</p>
+<p>Please read the paper "Weijia Yao et al., A Simulation System Based on ROS and Gazebo for RoboCup Middle Size League, 2015" for more information.</p>
+<h2>Part II. Single robot automatic movement</h2>
+<p>The robot will do motions according to states transfer graph. Steps are as follows:</p>
+<ol type="1">
+<li>Go to the package root directory (single_nubot_gazebo)</li>
+<li>source the setup.bash file: <code>$ source devel/setup.bash</code></li>
+<li><code>$ roslaunch <a class="el" href="namespacenubot__gazebo.html">nubot_gazebo</a> sdf_nubot.launch</code></li>
+</ol>
+<blockquote class="doxtable">
+<p><b>Note:</b> Every time you open a new terminal, you have to do step 2. You can also write this command into the ~/.bashrc file so that you don't have to source it every time.</p>
+<p></p>
+</blockquote>
+<p>Finally, the robot rotates and translates with trajectory planning. That is, the robot accelerates at constant acceleration and stays at constant speed when it reaches the maximum velocity.</p>
+<h2>Part III. Keyboad control robot movement</h2>
+<ol type="1">
+<li>In <a class="el" href="nubot__gazebo_8cc.html">nubot_gazebo.cc</a>, comment "nubot_auto_control();" and uncomment "nubot_be_control();" in function UpdateChild().</li>
+<li>Compile again and follow steps 1-3 listed in Part II.</li>
+<li><code>$ rosrun <a class="el" href="namespacenubot__gazebo.html">nubot_gazebo</a> nubot_teleop_keyboard</code></li>
+</ol>
+<h2>Part IV. Appendix</h2>
+<ol type="1">
+<li>To launch an empty soccer field: <code>$ roslaunch <a class="el" href="namespacenubot__gazebo.html">nubot_gazebo</a> empty_field.launch</code></li>
+<li>To launch the simulation world with rqt_plot of nubot or ball's velocity: <code>$ roslaunch <a class="el" href="namespacenubot__gazebo.html">nubot_gazebo</a> sdf_nubot.launch plot:=true</code> </li>
+</ol>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 18 2015 14:44:58 for single_nubot_gazebo by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 18 2015 16:15:14 for single_nubot_gazebo by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

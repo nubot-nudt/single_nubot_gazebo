@@ -1,14 +1,17 @@
 var searchData=
 [
-  ['vector_5fangle_2ehh',['vector_angle.hh',['../vector__angle_8hh.html',1,'']]],
-  ['vel_5fcmd_5f',['vel_cmd_',['../classnubot_1_1NubotTeleopKey.html#a7c70e3f5f30f940e9c508deb84f23da5',1,'nubot::NubotTeleopKey']]],
-  ['vel_5fcmd_5fcb',['vel_cmd_CB',['../classgazebo_1_1NubotGazebo.html#aafe5e8deca0e5a85a30c73629eee8703',1,'gazebo::NubotGazebo']]],
-  ['vel_5fpub',['vel_pub',['../classnubot_1_1NubotTeleopKey.html#af2b940ed562da027c7eda729403e4f86',1,'nubot::NubotTeleopKey']]],
-  ['velcmd_5fsub_5f',['Velcmd_sub_',['../classgazebo_1_1NubotGazebo.html#a6264896320559e214ac33d820c44b357',1,'gazebo::NubotGazebo']]],
-  ['velocity',['VELOCITY',['../nubot__teleop__keyboard_8cc.html#ab7d66695dede78826ee578ddfc5a92aa',1,'nubot_teleop_keyboard.cc']]],
-  ['velupdate',['VelUpdate',['../classnubot_1_1ParaTrajPlanning.html#a3a4b6ed645ce4640aba3a7611a6c1c8a',1,'nubot::ParaTrajPlanning']]],
-  ['vx_5f',['vx_',['../classnubot_1_1NubotTeleopKey.html#aafe296ec15a99f249180144842c64b29',1,'nubot::NubotTeleopKey']]],
-  ['vx_5fcmd_5f',['Vx_cmd_',['../classgazebo_1_1NubotGazebo.html#af17747304ff9b241fa0642c52923498b',1,'gazebo::NubotGazebo']]],
-  ['vy_5f',['vy_',['../classnubot_1_1NubotTeleopKey.html#a9bd6bb13fc993a07fb3d2272d3e2a600',1,'nubot::NubotTeleopKey']]],
-  ['vy_5fcmd_5f',['Vy_cmd_',['../classgazebo_1_1NubotGazebo.html#a977c91e62fed23c5fb9233e5d38ad597',1,'gazebo::NubotGazebo']]]
+  ['t_5fb_5f',['t_b_',['../classnubot_1_1ParaTrajPlanning.html#a88e449b3208fe20c0a3dc4e94a02e618',1,'nubot::ParaTrajPlanning']]],
+  ['t_5ff_5f',['t_f_',['../classnubot_1_1ParaTrajPlanning.html#a2995e2352c13817a8aaa29f4c7c6f15b',1,'nubot::ParaTrajPlanning']]],
+  ['tangentpoint',['tangentpoint',['../classnubot_1_1Circle.html#ae30b8af217855017e72b6ad27d97e0d8',1,'nubot::Circle']]],
+  ['time',['Time',['../classnubot_1_1Time.html',1,'nubot']]],
+  ['time',['Time',['../classnubot_1_1Time.html#a07a2c5b5f50e5c39040607dffdca8cf2',1,'nubot::Time::Time()'],['../classnubot_1_1Time.html#a87fe1767a6370743c81d231657fa4870',1,'nubot::Time::Time(const Time &amp;)'],['../classnubot_1_1Time.html#a3a4bed39dc118c114affb9f362688493',1,'nubot::Time::Time(const timeval &amp;)']]],
+  ['time_2ehpp',['time.hpp',['../time_8hpp.html',1,'']]],
+  ['time_5f',['time_',['../classnubot_1_1ParaTrajPlanning.html#a1cca952be3e779a2276db9e9341f4c80',1,'nubot::ParaTrajPlanning']]],
+  ['tomessage',['toMessage',['../classnubot__gazebo_1_1NubotGazeboConfig_1_1AbstractParamDescription.html#a1b4f9816a2a1d04354dd01946bd8059e',1,'nubot_gazebo::NubotGazeboConfig::AbstractParamDescription::toMessage()'],['../classnubot__gazebo_1_1NubotGazeboConfig_1_1ParamDescription.html#af50c2fa3ca6b5db9be337998218cd92e',1,'nubot_gazebo::NubotGazeboConfig::ParamDescription::toMessage()'],['../classnubot__gazebo_1_1NubotGazeboConfig_1_1AbstractGroupDescription.html#a23a1fcb6ff97279fe83c58d67d62c33e',1,'nubot_gazebo::NubotGazeboConfig::AbstractGroupDescription::toMessage()'],['../classnubot__gazebo_1_1NubotGazeboConfig_1_1GroupDescription.html#aaed67e4cda3ea6332bbf6bf71a5ed31d',1,'nubot_gazebo::NubotGazeboConfig::GroupDescription::toMessage()']]],
+  ['toserver',['toServer',['../classnubot__gazebo_1_1NubotGazeboConfig_1_1AbstractParamDescription.html#a02c545d049eb544dcffe0af14d5c4ad3',1,'nubot_gazebo::NubotGazeboConfig::AbstractParamDescription::toServer()'],['../classnubot__gazebo_1_1NubotGazeboConfig_1_1ParamDescription.html#adc6e0d0145a31279a11a8df353889de4',1,'nubot_gazebo::NubotGazeboConfig::ParamDescription::toServer()']]],
+  ['traj_5fplan_5flinear_5f',['traj_plan_linear_',['../classgazebo_1_1NubotGazebo.html#ac16bd419aba2826c0227ac575b351e9e',1,'gazebo::NubotGazebo']]],
+  ['traj_5fplan_5frot_5f',['traj_plan_rot_',['../classgazebo_1_1NubotGazebo.html#a95c171c478be4aadf6b4d96a3d3a48c8',1,'gazebo::NubotGazebo']]],
+  ['twist',['twist',['../structgazebo_1_1model__state.html#a60485b3f1187365afb7fb0105063b4ec',1,'gazebo::model_state']]],
+  ['twist',['Twist',['../structgazebo_1_1Twist.html',1,'gazebo']]],
+  ['type',['Type',['../structnubot__common_1_1BallHandleRequest__.html#a83dbef9a3630b37c8b27bfd32ee5a7b6',1,'nubot_common::BallHandleRequest_::Type()'],['../structnubot__common_1_1BallHandleResponse__.html#ae42df3848bb38ecbed216ed1efa93149',1,'nubot_common::BallHandleResponse_::Type()'],['../structnubot__common_1_1ShootRequest__.html#aaf26ccf95c5cb56763cb643600f92005',1,'nubot_common::ShootRequest_::Type()'],['../structnubot__common_1_1ShootResponse__.html#a1afd972b3b9a5016f438b957fb90c555',1,'nubot_common::ShootResponse_::Type()'],['../structnubot__common_1_1VelCmd__.html#a6986d19cbdcd3c0bb75e68ffea5b7886',1,'nubot_common::VelCmd_::Type()'],['../namespacenubot__gazebo_1_1cfg_1_1NubotGazeboConfig.html#ab0240d7eb44c9b4bdcad07d3f882ac32',1,'nubot_gazebo.cfg.NubotGazeboConfig.type()']]]
 ];

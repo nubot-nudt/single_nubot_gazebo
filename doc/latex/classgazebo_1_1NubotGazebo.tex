@@ -39,11 +39,11 @@ virtual void \hyperlink{classgazebo_1_1NubotGazebo_aefa336771bb8dffca92a2919352b
 \item 
 void \hyperlink{classgazebo_1_1NubotGazebo_a96b102bf11d96dda2cdab0f2f9460d8d}{model\-\_\-states\-\_\-\-C\-B} (const gazebo\-\_\-msgs\-::\-Model\-States\-::\-Const\-Ptr \&\-\_\-msg)
 \begin{DoxyCompactList}\small\item\em Model\-States message callback function. \end{DoxyCompactList}\item 
-void \hyperlink{classgazebo_1_1NubotGazebo_aafe5e8deca0e5a85a30c73629eee8703}{vel\-\_\-cmd\-\_\-\-C\-B} (const nubot\-\_\-common\-::\-Vel\-Cmd\-::\-Const\-Ptr \&cmd)
+void \hyperlink{classgazebo_1_1NubotGazebo_aafe5e8deca0e5a85a30c73629eee8703}{vel\-\_\-cmd\-\_\-\-C\-B} (const \hyperlink{structnubot__common_1_1VelCmd___a5a57f1d76c9209090962bf805a6d8cc8}{nubot\-\_\-common\-::\-Vel\-Cmd\-::\-Const\-Ptr} \&cmd)
 \begin{DoxyCompactList}\small\item\em Vel\-Cmd message callback function. \end{DoxyCompactList}\item 
-bool \hyperlink{classgazebo_1_1NubotGazebo_ae042db5614aea3da7c8f547c44d9ff6e}{ball\-\_\-handle\-\_\-control\-\_\-service} (nubot\-\_\-common\-::\-Ball\-Handle\-::\-Request \&req, nubot\-\_\-common\-::\-Ball\-Handle\-::\-Response \&res)
+bool \hyperlink{classgazebo_1_1NubotGazebo_ae042db5614aea3da7c8f547c44d9ff6e}{ball\-\_\-handle\-\_\-control\-\_\-service} (\hyperlink{structnubot__common_1_1BallHandle_a02af01a2f731b0fc249f1cf9df23a00e}{nubot\-\_\-common\-::\-Ball\-Handle\-::\-Request} \&req, \hyperlink{structnubot__common_1_1BallHandle_a6c4cc1c333d5fe1cfc569ee22b68ba89}{nubot\-\_\-common\-::\-Ball\-Handle\-::\-Response} \&res)
 \begin{DoxyCompactList}\small\item\em Ball handling service server function. \end{DoxyCompactList}\item 
-bool \hyperlink{classgazebo_1_1NubotGazebo_ade096537ecc11263f1dd14428325329b}{shoot\-\_\-control\-\_\-servive} (nubot\-\_\-common\-::\-Shoot\-::\-Request \&req, nubot\-\_\-common\-::\-Shoot\-::\-Response \&res)
+bool \hyperlink{classgazebo_1_1NubotGazebo_ade096537ecc11263f1dd14428325329b}{shoot\-\_\-control\-\_\-servive} (\hyperlink{structnubot__common_1_1Shoot_a8d200603298d1fe7377f13911e7d5bdc}{nubot\-\_\-common\-::\-Shoot\-::\-Request} \&req, \hyperlink{structnubot__common_1_1Shoot_a4d609a5e9faac9c7c0d32b7cf0eb5738}{nubot\-\_\-common\-::\-Shoot\-::\-Response} \&res)
 \begin{DoxyCompactList}\small\item\em Ball shooting service server function. \end{DoxyCompactList}\item 
 void \hyperlink{classgazebo_1_1NubotGazebo_a2c87fbf2e13762d4827367028d493670}{message\-\_\-queue\-\_\-thread} ()
 \begin{DoxyCompactList}\small\item\em Custom message callback queue thread. \end{DoxyCompactList}\item 
@@ -67,7 +67,7 @@ void \hyperlink{classgazebo_1_1NubotGazebo_a991cc13697cbd1eaf855d21e4f5d78d2}{nu
 \begin{DoxyCompactList}\small\item\em Single nubot predefined autonomous motions. \end{DoxyCompactList}\item 
 void \hyperlink{classgazebo_1_1NubotGazebo_aaa7835337bbfd120b5b85af40ccf47ae}{nubot\-\_\-be\-\_\-control} (void)
 \begin{DoxyCompactList}\small\item\em Robot motion controlled by real-\/robot code; or controlled by a keyboard. \end{DoxyCompactList}\item 
-void \hyperlink{classgazebo_1_1NubotGazebo_a828269281839a4f18d30f02d20ad62b6}{config} (nubot\-\_\-gazebo\-::\-Nubot\-Gazebo\-Config \&config, uint32\-\_\-t level)
+void \hyperlink{classgazebo_1_1NubotGazebo_a828269281839a4f18d30f02d20ad62b6}{config} (\hyperlink{classnubot__gazebo_1_1NubotGazeboConfig}{nubot\-\_\-gazebo\-::\-Nubot\-Gazebo\-Config} \&config, uint32\-\_\-t level)
 \begin{DoxyCompactList}\small\item\em dynmaic recofigure calback function \end{DoxyCompactList}\item 
 void \hyperlink{classgazebo_1_1NubotGazebo_a3a42f8965b7ccb35d0b6a0624c56ba86}{ball\-\_\-vel\-\_\-decay} (math\-::\-Vector3 vel, double mu)
 \begin{DoxyCompactList}\small\item\em a work-\/around for no rolling-\/friction in O\-D\-E. For more information, please read O\-D\-E manual. \end{DoxyCompactList}\item 
@@ -209,7 +209,7 @@ int \hyperlink{classgazebo_1_1NubotGazebo_afbdb7428487c2f6dec5000bae3d6f5a7}{cou
 math\-::\-Rand \hyperlink{classgazebo_1_1NubotGazebo_a5a6b999a205a45e1778e0f4d75e325e0}{rand\-\_\-}
 \item 
 dynamic\-\_\-reconfigure\-::\-Server\\*
-$<$ nubot\-\_\-gazebo\-::\-Nubot\-Gazebo\-Config $>$ $\ast$ \hyperlink{classgazebo_1_1NubotGazebo_a6f892f9dcb5b46bdd232ffec277dd093}{reconfigure\-Server\-\_\-}
+$<$ \hyperlink{classnubot__gazebo_1_1NubotGazeboConfig}{nubot\-\_\-gazebo\-::\-Nubot\-Gazebo\-Config} $>$ $\ast$ \hyperlink{classgazebo_1_1NubotGazebo_a6f892f9dcb5b46bdd232ffec277dd093}{reconfigure\-Server\-\_\-}
 \end{DoxyCompactItemize}
 
 
@@ -246,8 +246,8 @@ Destructor.
 \index{ball\-\_\-handle\-\_\-control\-\_\-service@{ball\-\_\-handle\-\_\-control\-\_\-service}!gazebo::NubotGazebo@{gazebo\-::\-Nubot\-Gazebo}}
 \subsubsection[{ball\-\_\-handle\-\_\-control\-\_\-service}]{\setlength{\rightskip}{0pt plus 5cm}bool Nubot\-Gazebo\-::ball\-\_\-handle\-\_\-control\-\_\-service (
 \begin{DoxyParamCaption}
-\item[{nubot\-\_\-common\-::\-Ball\-Handle\-::\-Request \&}]{req, }
-\item[{nubot\-\_\-common\-::\-Ball\-Handle\-::\-Response \&}]{res}
+\item[{{\bf nubot\-\_\-common\-::\-Ball\-Handle\-::\-Request} \&}]{req, }
+\item[{{\bf nubot\-\_\-common\-::\-Ball\-Handle\-::\-Response} \&}]{res}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}}\label{classgazebo_1_1NubotGazebo_ae042db5614aea3da7c8f547c44d9ff6e}
 
@@ -284,7 +284,7 @@ a work-\/around for no rolling-\/friction in O\-D\-E. For more information, plea
 \index{config@{config}!gazebo::NubotGazebo@{gazebo\-::\-Nubot\-Gazebo}}
 \subsubsection[{config}]{\setlength{\rightskip}{0pt plus 5cm}void Nubot\-Gazebo\-::config (
 \begin{DoxyParamCaption}
-\item[{nubot\-\_\-gazebo\-::\-Nubot\-Gazebo\-Config \&}]{config, }
+\item[{{\bf nubot\-\_\-gazebo\-::\-Nubot\-Gazebo\-Config} \&}]{config, }
 \item[{uint32\-\_\-t}]{level}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}}\label{classgazebo_1_1NubotGazebo_a828269281839a4f18d30f02d20ad62b6}
@@ -519,8 +519,8 @@ replace football\-\_\-model\-\_\--\/$>$Set\-Linear\-Vel() with a flag to indicat
 \index{shoot\-\_\-control\-\_\-servive@{shoot\-\_\-control\-\_\-servive}!gazebo::NubotGazebo@{gazebo\-::\-Nubot\-Gazebo}}
 \subsubsection[{shoot\-\_\-control\-\_\-servive}]{\setlength{\rightskip}{0pt plus 5cm}bool Nubot\-Gazebo\-::shoot\-\_\-control\-\_\-servive (
 \begin{DoxyParamCaption}
-\item[{nubot\-\_\-common\-::\-Shoot\-::\-Request \&}]{req, }
-\item[{nubot\-\_\-common\-::\-Shoot\-::\-Response \&}]{res}
+\item[{{\bf nubot\-\_\-common\-::\-Shoot\-::\-Request} \&}]{req, }
+\item[{{\bf nubot\-\_\-common\-::\-Shoot\-::\-Response} \&}]{res}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}}\label{classgazebo_1_1NubotGazebo_ade096537ecc11263f1dd14428325329b}
 
@@ -563,7 +563,7 @@ Update the controller. It is running every simulation iteration. So you can put 
 \index{vel\-\_\-cmd\-\_\-\-C\-B@{vel\-\_\-cmd\-\_\-\-C\-B}!gazebo::NubotGazebo@{gazebo\-::\-Nubot\-Gazebo}}
 \subsubsection[{vel\-\_\-cmd\-\_\-\-C\-B}]{\setlength{\rightskip}{0pt plus 5cm}void Nubot\-Gazebo\-::vel\-\_\-cmd\-\_\-\-C\-B (
 \begin{DoxyParamCaption}
-\item[{const nubot\-\_\-common\-::\-Vel\-Cmd\-::\-Const\-Ptr \&}]{cmd}
+\item[{const {\bf nubot\-\_\-common\-::\-Vel\-Cmd\-::\-Const\-Ptr} \&}]{cmd}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [private]}}}\label{classgazebo_1_1NubotGazebo_aafe5e8deca0e5a85a30c73629eee8703}
 
@@ -724,7 +724,7 @@ Vel\-Cmd message callback function.
 \subsubsection[{receive\-\_\-sim\-\_\-time\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}common\-::\-Time gazebo\-::\-Nubot\-Gazebo\-::receive\-\_\-sim\-\_\-time\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classgazebo_1_1NubotGazebo_a36186a24f60f3c88fd6fb12fd85b4fa4}
 \hypertarget{classgazebo_1_1NubotGazebo_a6f892f9dcb5b46bdd232ffec277dd093}{\index{gazebo\-::\-Nubot\-Gazebo@{gazebo\-::\-Nubot\-Gazebo}!reconfigure\-Server\-\_\-@{reconfigure\-Server\-\_\-}}
 \index{reconfigure\-Server\-\_\-@{reconfigure\-Server\-\_\-}!gazebo::NubotGazebo@{gazebo\-::\-Nubot\-Gazebo}}
-\subsubsection[{reconfigure\-Server\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}dynamic\-\_\-reconfigure\-::\-Server$<$nubot\-\_\-gazebo\-::\-Nubot\-Gazebo\-Config$>$$\ast$ gazebo\-::\-Nubot\-Gazebo\-::reconfigure\-Server\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classgazebo_1_1NubotGazebo_a6f892f9dcb5b46bdd232ffec277dd093}
+\subsubsection[{reconfigure\-Server\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}dynamic\-\_\-reconfigure\-::\-Server$<${\bf nubot\-\_\-gazebo\-::\-Nubot\-Gazebo\-Config}$>$$\ast$ gazebo\-::\-Nubot\-Gazebo\-::reconfigure\-Server\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classgazebo_1_1NubotGazebo_a6f892f9dcb5b46bdd232ffec277dd093}
 \hypertarget{classgazebo_1_1NubotGazebo_ac92e4461911d9522f1454978d26ec461}{\index{gazebo\-::\-Nubot\-Gazebo@{gazebo\-::\-Nubot\-Gazebo}!robot\-\_\-namespace\-\_\-@{robot\-\_\-namespace\-\_\-}}
 \index{robot\-\_\-namespace\-\_\-@{robot\-\_\-namespace\-\_\-}!gazebo::NubotGazebo@{gazebo\-::\-Nubot\-Gazebo}}
 \subsubsection[{robot\-\_\-namespace\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string gazebo\-::\-Nubot\-Gazebo\-::robot\-\_\-namespace\-\_\-\hspace{0.3cm}{\ttfamily [private]}}}\label{classgazebo_1_1NubotGazebo_ac92e4461911d9522f1454978d26ec461}

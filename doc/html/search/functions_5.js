@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['keyloop',['keyLoop',['../classnubot_1_1NubotTeleopKey.html#a42f6239835f4c5e6062dbc4a51328858',1,'nubot::NubotTeleopKey']]],
-  ['kick_5fball',['kick_ball',['../classgazebo_1_1NubotGazebo.html#a0b8f02255ccde5f6768afb45fee8b81b',1,'gazebo::NubotGazebo']]],
-  ['kick_5fvector_5fnubot',['kick_vector_nubot',['../nubot__gazebo_8cc.html#aab761f39571fc61afcadefe1a3e029f0',1,'nubot_gazebo.cc']]]
+  ['elapsed_5fmsec',['elapsed_msec',['../classnubot_1_1Time.html#a518f8fd951b312c03bd9f725946e5fd1',1,'nubot::Time']]],
+  ['elapsed_5fsec',['elapsed_sec',['../classnubot_1_1Time.html#af40877857ced8437a7828188bc22e884',1,'nubot::Time']]],
+  ['elapsed_5fusec',['elapsed_usec',['../classnubot_1_1Time.html#ab6bf73273c4ef7b45017ea9104909039',1,'nubot::Time']]]
 ];

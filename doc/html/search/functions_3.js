@@ -1,23 +1,11 @@
 var searchData=
 [
-  ['get_5fangle_5f2pi',['get_angle_2PI',['../vector__angle_8hh.html#ae998ba9cb6fe53aee83ee816110b4e4f',1,'vector_angle.hh']]],
-  ['get_5fangle_5fpi',['get_angle_PI',['../vector__angle_8hh.html#adcfcbae1bee7086c33410a71b2f2e729',1,'vector_angle.hh']]],
-  ['get_5fcos_5fangle',['get_cos_angle',['../vector__angle_8hh.html#a1b9926f16acb5f592b62a9432a01faaa',1,'vector_angle.hh']]],
-  ['get_5fis_5fhold_5fball',['get_is_hold_ball',['../classgazebo_1_1NubotGazebo.html#a8366f268f6bba085201123d74b786368',1,'gazebo::NubotGazebo']]],
-  ['get_5frot_5fvector',['get_rot_vector',['../classgazebo_1_1NubotGazebo.html#a8ac8c9467b8e14b4ceb0718d97031617',1,'gazebo::NubotGazebo']]],
-  ['get_5fsin_5fangle',['get_sin_angle',['../vector__angle_8hh.html#a3f4b439e11cba4b39e181f4482aaf320',1,'vector_angle.hh']]],
-  ['get_5ftrans_5fvector',['get_trans_vector',['../classgazebo_1_1NubotGazebo.html#a0a50fbb4be79c99cf860b84413f8fa9b',1,'gazebo::NubotGazebo']]],
-  ['getaccel',['GetAccel',['../classnubot_1_1ParaTrajPlanning.html#af6d435d152a9598331b8f42f26e862a6',1,'nubot::ParaTrajPlanning']]],
-  ['getcmd',['GetCmd',['../classnubot_1_1PID.html#afcc5fde219a034baee2be82906c17996',1,'nubot::PID']]],
-  ['getcmdmax',['GetCmdMax',['../classnubot_1_1PID.html#a0738df8f919a587a843f23387e7f67f4',1,'nubot::PID']]],
-  ['getcmdmin',['GetCmdMin',['../classnubot_1_1PID.html#a64a6e969502546bc315ff69ef157269f',1,'nubot::PID']]],
-  ['getdgain',['GetDGain',['../classnubot_1_1PID.html#aee309a8f184f0a2de417d24513f7e48a',1,'nubot::PID']]],
-  ['getdistance',['GetDistance',['../classnubot_1_1ParaTrajPlanning.html#a98156410db22d0048f638162b4403c9f',1,'nubot::ParaTrajPlanning']]],
-  ['geterrors',['GetErrors',['../classnubot_1_1PID.html#a23f7bafbad7472d8d8dce24236bf5baa',1,'nubot::PID']]],
-  ['getigain',['GetIGain',['../classnubot_1_1PID.html#a9aa6fdeab746f430822c02d719a8ba7a',1,'nubot::PID']]],
-  ['getimax',['GetIMax',['../classnubot_1_1PID.html#a49f73670f78e53265eae69338c084062',1,'nubot::PID']]],
-  ['getimin',['GetIMin',['../classnubot_1_1PID.html#ad0330647e22283f20d217b0e2d6cd420',1,'nubot::PID']]],
-  ['getmaxvel',['GetMaxVel',['../classnubot_1_1ParaTrajPlanning.html#a60026b9eba695f86b863698c3d33f43f',1,'nubot::ParaTrajPlanning']]],
-  ['getpgain',['GetPGain',['../classnubot_1_1PID.html#a1c0443f163e53483369989c4f185b84e',1,'nubot::PID']]],
-  ['getterms',['GetTerms',['../classnubot_1_1PID.html#a012fe343ac6256b82f97f6e0ce2710f7',1,'nubot::PID']]]
+  ['calclevel',['calcLevel',['../classnubot__gazebo_1_1NubotGazeboConfig_1_1AbstractParamDescription.html#ac3f8ee47d39c841ed0e3845f15308aad',1,'nubot_gazebo::NubotGazeboConfig::AbstractParamDescription::calcLevel()'],['../classnubot__gazebo_1_1NubotGazeboConfig_1_1ParamDescription.html#a1e1a067428b818201102fcbf15a3dad1',1,'nubot_gazebo::NubotGazeboConfig::ParamDescription::calcLevel()']]],
+  ['circle',['Circle',['../classnubot_1_1Circle.html#a6fcb5d5835ad8c86696ce21948609270',1,'nubot::Circle::Circle()'],['../classnubot_1_1Circle.html#a7b9e93757d174a530119510ea4f5f09f',1,'nubot::Circle::Circle(double _radius, const DPoint_&lt; _Tp &gt; &amp;_center)'],['../classnubot_1_1Circle.html#aee5aa88389a236d017bc42dff3bc5b4f',1,'nubot::Circle::Circle(const Circle &amp;_circle)'],['../classnubot_1_1Circle.html#a575a6adbfd11e44614c53e4db663d2fc',1,'nubot::Circle::Circle(const DPoint_&lt; _Tp &gt; &amp;pt1, const DPoint_&lt; _Tp &gt; &amp;pt2)']]],
+  ['clamp',['clamp',['../classnubot__gazebo_1_1NubotGazeboConfig_1_1AbstractParamDescription.html#ab74d560ba0902fdbebdcf572f3c863e3',1,'nubot_gazebo::NubotGazeboConfig::AbstractParamDescription::clamp()'],['../classnubot__gazebo_1_1NubotGazeboConfig_1_1ParamDescription.html#aeba0fdbc61e15a23e89737c4a83b439f',1,'nubot_gazebo::NubotGazeboConfig::ParamDescription::clamp(NubotGazeboConfig &amp;config, const NubotGazeboConfig &amp;max, const NubotGazeboConfig &amp;min) const '],['../classnubot__gazebo_1_1NubotGazeboConfig_1_1ParamDescription.html#a0ea2dfc74fd6fa8cfe3dee9a88947a3c',1,'nubot_gazebo::NubotGazeboConfig::ParamDescription::clamp(NubotGazeboConfig &amp;config, const NubotGazeboConfig &amp;max, const NubotGazeboConfig &amp;min) const']]],
+  ['comment',['comment',['../namespace__setup__util.html#a9d73115db9efca5c20b575f96b9eb065',1,'_setup_util']]],
+  ['config',['config',['../classgazebo_1_1NubotGazebo.html#a828269281839a4f18d30f02d20ad62b6',1,'gazebo::NubotGazebo']]],
+  ['convertparams',['convertParams',['../classnubot__gazebo_1_1NubotGazeboConfig_1_1AbstractGroupDescription.html#a47c39956c6b342e9b2c323fe28ffc38c',1,'nubot_gazebo::NubotGazeboConfig::AbstractGroupDescription']]],
+  ['cross',['cross',['../classnubot_1_1DPoint__.html#a9d315d9c89bb8068c520fc05f898cca6',1,'nubot::DPoint_']]],
+  ['crosspoint',['crosspoint',['../classnubot_1_1Circle.html#a0f636f2fa233c4ea91c2bf76a5357e85',1,'nubot::Circle::crosspoint()'],['../classnubot_1_1Line__.html#a11716bc7ffee70394aeb54fbb6acc1a6',1,'nubot::Line_::crosspoint()']]]
 ];
