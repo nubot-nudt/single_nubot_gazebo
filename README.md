@@ -8,8 +8,8 @@ This simulation system can simulate one robot soccer player for RoboCup Middle S
 4. gazebo_ros_pkgs;
 
 > **NOTE:** 
-> If you choose "desktop-full" install of ROS Indigo, there is a Gazebo 2.0 included initially. In order to install Gazebo 5.0/5.1, you should first remove Gazebo 2.0 by running:
-` $ sudo apt-get remove gazebo2* `
+> If you choose "desktop-full" install of ROS Indigo, there is a Gazebo 2.0 included initially. In order to install Gazebo 5.0/5.1, you should first remove Gazebo 2.0 by running: 
+` $ sudo apt-get remove gazebo2* `  
 > Then you should be able to install Gazebo 5.0 now. To install gazebo_ros_pkgs compatible with Gazebo
 > 5.0/5.1, run this command:
 ` $ sudo apt-get install ros-indigo-gazebo5-ros-pkgs ros-indigo-gazebo5-ros-control`
@@ -20,11 +20,10 @@ Other versions of Ubuntu, ROS or Gazebo may also work, but we have not tested ye
 # Complie
 1. Go to the package root directory (single_nubot_gazebo)
 2. If you already have CMakeLists.txt in the "src" folder, then you can skip this step. 
-   If not, run these commands:```
-    $ cd src 
-    $ catkin_init_workspace
-    $ cd ..
-   ```
+   If not, run these commands:
+    ` $ cd src `
+    ` $ catkin_init_workspace`
+    ` $ cd ..`
 3. $ ./configure
 4. $ catkin_make --pkg nubot_common
 5. $ catkin_make
