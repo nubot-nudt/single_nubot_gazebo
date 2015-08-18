@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['run',['RUN',['../nubot__gazebo_8cc.html#a35f69a612b07bbf1de53bbbd8d877c09',1,'RUN():&#160;nubot_gazebo.cc'],['../nubot__teleop__keyboard_8cc.html#a35f69a612b07bbf1de53bbbd8d877c09',1,'RUN():&#160;nubot_teleop_keyboard.cc']]]
+  ['zero_5fvector',['ZERO_VECTOR',['../nubot__gazebo_8cc.html#abf368acf7f42cb30dbfc340c7485ab78',1,'nubot_gazebo.cc']]]
 ];

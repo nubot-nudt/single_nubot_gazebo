@@ -7,7 +7,6 @@ var searchData=
   ['reference_5fframe',['reference_frame',['../structgazebo_1_1model__state.html#a22787f252a57adeadc5983b5127c1027',1,'gazebo::model_state']]],
   ['reset',['Reset',['../classgazebo_1_1NubotGazebo.html#aefa336771bb8dffca92a2919352b62bc',1,'gazebo::NubotGazebo::Reset()'],['../classnubot_1_1PID.html#a9f949fd4445477ee9bf1af2bfa3e1a84',1,'nubot::PID::Reset()'],['../classnubot_1_1ParaTrajPlanning.html#afebeebbaf531a808175168e09c33d0f1',1,'nubot::ParaTrajPlanning::Reset()'],['../nubot__gazebo_8hh.html#a9f17572284bab3e9bd067a6393a7953ba589b7d94a3d91d145720e2fed0eb3a05',1,'RESET():&#160;nubot_gazebo.hh']]],
   ['right_5fgoal',['right_goal',['../nubot__gazebo_8cc.html#a3ebf92156a4bdb6cbf60140d606e78b5',1,'nubot_gazebo.cc']]],
-  ['robot_5finfo_5f',['robot_info_',['../classgazebo_1_1NubotGazebo.html#a0b6c40da9694bc5645ea4abd0ee6825c',1,'gazebo::NubotGazebo']]],
   ['robot_5fnamespace_5f',['robot_namespace_',['../classgazebo_1_1NubotGazebo.html#ac92e4461911d9522f1454978d26ec461',1,'gazebo::NubotGazebo']]],
   ['robot_5fnum',['robot_num',['../nubot__teleop__keyboard_8cc.html#ad866931981756c1f4afca845d00670d9',1,'nubot_teleop_keyboard.cc']]],
   ['robot_5fprefix_5f',['robot_prefix_',['../classgazebo_1_1NubotGazebo.html#a5d3cf2ace05ce1ade8b71d1c6397a7b0',1,'gazebo::NubotGazebo::robot_prefix_()'],['../classnubot_1_1NubotTeleopKey.html#a1dbd680214196cf4eb9cfe4f817d8158',1,'nubot::NubotTeleopKey::robot_prefix_()']]],

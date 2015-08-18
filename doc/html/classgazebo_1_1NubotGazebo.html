@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>single_nubot_gazebo_ws: gazebo::NubotGazebo Class Reference</title>
+<title>single_nubot_gazebo: gazebo::NubotGazebo Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,9 +22,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">single_nubot_gazebo_ws
+   <div id="projectname">single_nubot_gazebo
    </div>
-   <div id="projectbrief">Gazebo Model Plugin for soccer robot simulation</div>
+   <div id="projectbrief">This simulation system can simulate one robot soccer player for RoboCup Middle Size League. It can be adapted for other purposes.</div>
   </td>
  </tr>
  </tbody>
@@ -126,7 +126,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="memdesc:aa1eea79757774a935fe82a5fbc1b3f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the controller. Required by model plugin. Will be called secondly.  <a href="#aa1eea79757774a935fe82a5fbc1b3f94">More...</a><br/></td></tr>
 <tr class="separator:aa1eea79757774a935fe82a5fbc1b3f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d2bb8130da6d209089f5ee469427ca4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a9d2bb8130da6d209089f5ee469427ca4">UpdateChild</a> ()</td></tr>
-<tr class="memdesc:a9d2bb8130da6d209089f5ee469427ca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the controller. It is running every simulation iteration. [realtime factor] = [realtime update rate] * [max step size].  <a href="#a9d2bb8130da6d209089f5ee469427ca4">More...</a><br/></td></tr>
+<tr class="memdesc:a9d2bb8130da6d209089f5ee469427ca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the controller. It is running every simulation iteration. So you can put your core code here.(in this code, either <a class="el" href="classgazebo_1_1NubotGazebo.html#aaa7835337bbfd120b5b85af40ccf47ae" title="Robot motion controlled by real-robot code; or controlled by a keyboard. ">nubot_be_control()</a> or <a class="el" href="classgazebo_1_1NubotGazebo.html#a991cc13697cbd1eaf855d21e4f5d78d2" title="Single nubot predefined autonomous motions. ">nubot_auto_control()</a>)  <a href="#a9d2bb8130da6d209089f5ee469427ca4">More...</a><br/></td></tr>
 <tr class="separator:a9d2bb8130da6d209089f5ee469427ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf91360d6ce9b5f2cf02c3907100495e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#abf91360d6ce9b5f2cf02c3907100495e">Init</a> ()</td></tr>
 <tr class="memdesc:abf91360d6ce9b5f2cf02c3907100495e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Model Initialization(after the Load function). Not required by model plugin. Will be called thirdly.  <a href="#abf91360d6ce9b5f2cf02c3907100495e">More...</a><br/></td></tr>
@@ -138,25 +138,25 @@ Protected Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a96b102bf11d96dda2cdab0f2f9460d8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a96b102bf11d96dda2cdab0f2f9460d8d">model_states_CB</a> (const gazebo_msgs::ModelStates::ConstPtr &amp;_msg)</td></tr>
-<tr class="memdesc:a96b102bf11d96dda2cdab0f2f9460d8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ModelStates message CallBack function.  <a href="#a96b102bf11d96dda2cdab0f2f9460d8d">More...</a><br/></td></tr>
+<tr class="memdesc:a96b102bf11d96dda2cdab0f2f9460d8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ModelStates message callback function.  <a href="#a96b102bf11d96dda2cdab0f2f9460d8d">More...</a><br/></td></tr>
 <tr class="separator:a96b102bf11d96dda2cdab0f2f9460d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafe5e8deca0e5a85a30c73629eee8703"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#aafe5e8deca0e5a85a30c73629eee8703">vel_cmd_CB</a> (const nubot_common::VelCmd::ConstPtr &amp;cmd)</td></tr>
-<tr class="memdesc:aafe5e8deca0e5a85a30c73629eee8703"><td class="mdescLeft">&#160;</td><td class="mdescRight">VelCmd message CallBack function.  <a href="#aafe5e8deca0e5a85a30c73629eee8703">More...</a><br/></td></tr>
+<tr class="memdesc:aafe5e8deca0e5a85a30c73629eee8703"><td class="mdescLeft">&#160;</td><td class="mdescRight">VelCmd message callback function.  <a href="#aafe5e8deca0e5a85a30c73629eee8703">More...</a><br/></td></tr>
 <tr class="separator:aafe5e8deca0e5a85a30c73629eee8703"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae042db5614aea3da7c8f547c44d9ff6e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#ae042db5614aea3da7c8f547c44d9ff6e">ball_handle_control_service</a> (nubot_common::BallHandle::Request &amp;req, nubot_common::BallHandle::Response &amp;res)</td></tr>
-<tr class="memdesc:ae042db5614aea3da7c8f547c44d9ff6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ball handling service.  <a href="#ae042db5614aea3da7c8f547c44d9ff6e">More...</a><br/></td></tr>
+<tr class="memdesc:ae042db5614aea3da7c8f547c44d9ff6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ball handling service server function.  <a href="#ae042db5614aea3da7c8f547c44d9ff6e">More...</a><br/></td></tr>
 <tr class="separator:ae042db5614aea3da7c8f547c44d9ff6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade096537ecc11263f1dd14428325329b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#ade096537ecc11263f1dd14428325329b">shoot_control_servive</a> (nubot_common::Shoot::Request &amp;req, nubot_common::Shoot::Response &amp;res)</td></tr>
-<tr class="memdesc:ade096537ecc11263f1dd14428325329b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ball shooting service.  <a href="#ade096537ecc11263f1dd14428325329b">More...</a><br/></td></tr>
+<tr class="memdesc:ade096537ecc11263f1dd14428325329b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ball shooting service server function.  <a href="#ade096537ecc11263f1dd14428325329b">More...</a><br/></td></tr>
 <tr class="separator:ade096537ecc11263f1dd14428325329b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c87fbf2e13762d4827367028d493670"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a2c87fbf2e13762d4827367028d493670">message_queue_thread</a> ()</td></tr>
-<tr class="memdesc:a2c87fbf2e13762d4827367028d493670"><td class="mdescLeft">&#160;</td><td class="mdescRight">custom message callback queue thread  <a href="#a2c87fbf2e13762d4827367028d493670">More...</a><br/></td></tr>
+<tr class="memdesc:a2c87fbf2e13762d4827367028d493670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Custom message callback queue thread.  <a href="#a2c87fbf2e13762d4827367028d493670">More...</a><br/></td></tr>
 <tr class="separator:a2c87fbf2e13762d4827367028d493670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe786a1fbc3407f1b2ac655b1af15a8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#abe786a1fbc3407f1b2ac655b1af15a8b">service_queue_thread</a> ()</td></tr>
-<tr class="memdesc:abe786a1fbc3407f1b2ac655b1af15a8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">custom service callback queue thread  <a href="#abe786a1fbc3407f1b2ac655b1af15a8b">More...</a><br/></td></tr>
+<tr class="memdesc:abe786a1fbc3407f1b2ac655b1af15a8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Custom service callback queue thread.  <a href="#abe786a1fbc3407f1b2ac655b1af15a8b">More...</a><br/></td></tr>
 <tr class="separator:abe786a1fbc3407f1b2ac655b1af15a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b884175db3fd9e7ac88f6076d5f2b8e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a3b884175db3fd9e7ac88f6076d5f2b8e">update_model_info</a> (void)</td></tr>
-<tr class="memdesc:a3b884175db3fd9e7ac88f6076d5f2b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updating models' states.  <a href="#a3b884175db3fd9e7ac88f6076d5f2b8e">More...</a><br/></td></tr>
+<tr class="memdesc:a3b884175db3fd9e7ac88f6076d5f2b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updating models' states; By default, Gaussian noise is not added, but you can add it by changing the flag in this function.  <a href="#a3b884175db3fd9e7ac88f6076d5f2b8e">More...</a><br/></td></tr>
 <tr class="separator:a3b884175db3fd9e7ac88f6076d5f2b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad93752507f23724bba2f731325e4c14b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#ad93752507f23724bba2f731325e4c14b">nubot_locomotion</a> (math::Vector3 linear_vel_vector, math::Vector3 angular_vel_vector)</td></tr>
 <tr class="memdesc:ad93752507f23724bba2f731325e4c14b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nubot moving fuction: rotation + translation.  <a href="#ad93752507f23724bba2f731325e4c14b">More...</a><br/></td></tr>
@@ -171,7 +171,7 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:a91862269320f78bc24856e8877af3cc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nubot dribbling ball function. The football follows nubot movement.  <a href="#a91862269320f78bc24856e8877af3cc4">More...</a><br/></td></tr>
 <tr class="separator:a91862269320f78bc24856e8877af3cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b8f02255ccde5f6768afb45fee8b81b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a0b8f02255ccde5f6768afb45fee8b81b">kick_ball</a> (int mode, double vel)</td></tr>
-<tr class="memdesc:a0b8f02255ccde5f6768afb45fee8b81b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nubot kicking ball.  <a href="#a0b8f02255ccde5f6768afb45fee8b81b">More...</a><br/></td></tr>
+<tr class="memdesc:a0b8f02255ccde5f6768afb45fee8b81b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nubot kicking ball. For more information, read the paper "Weijia Yao et al., A Simulation System Based on ROS and Gazebo for RoboCup Middle Size League, 2015".  <a href="#a0b8f02255ccde5f6768afb45fee8b81b">More...</a><br/></td></tr>
 <tr class="separator:a0b8f02255ccde5f6768afb45fee8b81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8366f268f6bba085201123d74b786368"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a8366f268f6bba085201123d74b786368">get_is_hold_ball</a> (void)</td></tr>
 <tr class="memdesc:a8366f268f6bba085201123d74b786368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of flag is_hold_ball_.  <a href="#a8366f268f6bba085201123d74b786368">More...</a><br/></td></tr>
@@ -180,16 +180,13 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:a991cc13697cbd1eaf855d21e4f5d78d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single nubot predefined autonomous motions.  <a href="#a991cc13697cbd1eaf855d21e4f5d78d2">More...</a><br/></td></tr>
 <tr class="separator:a991cc13697cbd1eaf855d21e4f5d78d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa7835337bbfd120b5b85af40ccf47ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#aaa7835337bbfd120b5b85af40ccf47ae">nubot_be_control</a> (void)</td></tr>
-<tr class="memdesc:aaa7835337bbfd120b5b85af40ccf47ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Robot motion controlled by real-robot code;.  <a href="#aaa7835337bbfd120b5b85af40ccf47ae">More...</a><br/></td></tr>
+<tr class="memdesc:aaa7835337bbfd120b5b85af40ccf47ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Robot motion controlled by real-robot code; or controlled by a keyboard.  <a href="#aaa7835337bbfd120b5b85af40ccf47ae">More...</a><br/></td></tr>
 <tr class="separator:aaa7835337bbfd120b5b85af40ccf47ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97e67cc6fc94f1644ffb5f3e1a9fa918"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a97e67cc6fc94f1644ffb5f3e1a9fa918">nubot_test</a> (void)</td></tr>
-<tr class="memdesc:a97e67cc6fc94f1644ffb5f3e1a9fa918"><td class="mdescLeft">&#160;</td><td class="mdescRight">For testing seprate functions.  <a href="#a97e67cc6fc94f1644ffb5f3e1a9fa918">More...</a><br/></td></tr>
-<tr class="separator:a97e67cc6fc94f1644ffb5f3e1a9fa918"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a828269281839a4f18d30f02d20ad62b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a828269281839a4f18d30f02d20ad62b6">config</a> (nubot_gazebo::NubotGazeboConfig &amp;config, uint32_t level)</td></tr>
 <tr class="memdesc:a828269281839a4f18d30f02d20ad62b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">dynmaic recofigure calback function  <a href="#a828269281839a4f18d30f02d20ad62b6">More...</a><br/></td></tr>
 <tr class="separator:a828269281839a4f18d30f02d20ad62b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a42f8965b7ccb35d0b6a0624c56ba86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a3a42f8965b7ccb35d0b6a0624c56ba86">ball_vel_decay</a> (math::Vector3 vel, double mu)</td></tr>
-<tr class="memdesc:a3a42f8965b7ccb35d0b6a0624c56ba86"><td class="mdescLeft">&#160;</td><td class="mdescRight">a work-around for no rolling-friction in ODE  <a href="#a3a42f8965b7ccb35d0b6a0624c56ba86">More...</a><br/></td></tr>
+<tr class="memdesc:a3a42f8965b7ccb35d0b6a0624c56ba86"><td class="mdescLeft">&#160;</td><td class="mdescRight">a work-around for no rolling-friction in ODE. For more information, please read ODE manual.  <a href="#a3a42f8965b7ccb35d0b6a0624c56ba86">More...</a><br/></td></tr>
 <tr class="separator:a3a42f8965b7ccb35d0b6a0624c56ba86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b5d4a3644867257cb379613072e9567"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a5b5d4a3644867257cb379613072e9567">set_ball_vel</a> (math::Vector3 &amp;vel, bool &amp;ball_decay_flag)</td></tr>
 <tr class="memdesc:a5b5d4a3644867257cb379613072e9567"><td class="mdescLeft">&#160;</td><td class="mdescRight">replace football_model_-&gt;SetLinearVel() with a flag to indicate vel decay  <a href="#a5b5d4a3644867257cb379613072e9567">More...</a><br/></td></tr>
@@ -213,8 +210,6 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a7b758780795b0406d06bf5db5122dbe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6264896320559e214ac33d820c44b357"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a6264896320559e214ac33d820c44b357">Velcmd_sub_</a></td></tr>
 <tr class="separator:a6264896320559e214ac33d820c44b357"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab150ae2392ec6946dd48b595f4508395"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#ab150ae2392ec6946dd48b595f4508395">debug_pub_</a></td></tr>
-<tr class="separator:ab150ae2392ec6946dd48b595f4508395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8abc682c8dc7cad7d29d131901aec05"><td class="memItemLeft" align="right" valign="top">ros::ServiceServer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#af8abc682c8dc7cad7d29d131901aec05">ballhandle_server_</a></td></tr>
 <tr class="separator:af8abc682c8dc7cad7d29d131901aec05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd3e6ab82580823e83d84433dac19e86"><td class="memItemLeft" align="right" valign="top">ros::ServiceServer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#afd3e6ab82580823e83d84433dac19e86">shoot_server_</a></td></tr>
@@ -239,22 +234,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a5abf5be34d8441db05d94ead7924ce14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7356a83d30997d884440a10e95d29f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgazebo_1_1model__state.html">model_state</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#af7356a83d30997d884440a10e95d29f4">football_state_</a></td></tr>
 <tr class="separator:af7356a83d30997d884440a10e95d29f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69c9083b620e0914c1e05c491a72dee1"><td class="memItemLeft" align="right" valign="top">nubot_common::BallInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a69c9083b620e0914c1e05c491a72dee1">ball_info_</a></td></tr>
-<tr class="separator:a69c9083b620e0914c1e05c491a72dee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b6c40da9694bc5645ea4abd0ee6825c"><td class="memItemLeft" align="right" valign="top">nubot_common::RobotInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a0b6c40da9694bc5645ea4abd0ee6825c">robot_info_</a></td></tr>
-<tr class="separator:a0b6c40da9694bc5645ea4abd0ee6825c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99a7b4ea5d236921e8851f9e1fada285"><td class="memItemLeft" align="right" valign="top">nubot_common::ObstaclesInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a99a7b4ea5d236921e8851f9e1fada285">obstacles_info_</a></td></tr>
-<tr class="separator:a99a7b4ea5d236921e8851f9e1fada285"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61aa65532963d60511bd5b7cf6d2e2cf"><td class="memItemLeft" align="right" valign="top">nubot_common::OminiVisionInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a61aa65532963d60511bd5b7cf6d2e2cf">omin_vision_info_</a></td></tr>
-<tr class="separator:a61aa65532963d60511bd5b7cf6d2e2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7583d7ea785ceae0a6e9126c743c9c3b"><td class="memItemLeft" align="right" valign="top">nubot_common::FrontBallInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a7583d7ea785ceae0a6e9126c743c9c3b">front_ball_info_</a></td></tr>
-<tr class="separator:a7583d7ea785ceae0a6e9126c743c9c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36186a24f60f3c88fd6fb12fd85b4fa4"><td class="memItemLeft" align="right" valign="top">common::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a36186a24f60f3c88fd6fb12fd85b4fa4">receive_sim_time_</a></td></tr>
 <tr class="separator:a36186a24f60f3c88fd6fb12fd85b4fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e05ad53365765db200e0d62c451e069"><td class="memItemLeft" align="right" valign="top">common::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a8e05ad53365765db200e0d62c451e069">last_current_time_</a></td></tr>
 <tr class="separator:a8e05ad53365765db200e0d62c451e069"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73e534a19457ba3ec98e117f1cfe839f"><td class="memItemLeft" align="right" valign="top">std_msgs::Float64MultiArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a73e534a19457ba3ec98e117f1cfe839f">debug_msgs_</a></td></tr>
-<tr class="separator:a73e534a19457ba3ec98e117f1cfe839f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a385577ffa9cc48440e8047019d6e67f6"><td class="memItemLeft" align="right" valign="top">math::Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#a385577ffa9cc48440e8047019d6e67f6">desired_rot_vector_</a></td></tr>
 <tr class="separator:a385577ffa9cc48440e8047019d6e67f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac515996ccf0c682a0ed88f00e401373d"><td class="memItemLeft" align="right" valign="top">math::Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgazebo_1_1NubotGazebo.html#ac515996ccf0c682a0ed88f00e401373d">desired_trans_vector_</a></td></tr>
@@ -425,7 +408,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Ball handling service. </p>
+<p>Ball handling service server function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">req</td><td>ball handle service request </td></tr>
@@ -468,7 +451,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>a work-around for no rolling-friction in ODE </p>
+<p>a work-around for no rolling-friction in ODE. For more information, please read ODE manual. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">vel</td><td>football's current 3D velocity </td></tr>
@@ -717,7 +700,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Nubot kicking ball. </p>
+<p>Nubot kicking ball. For more information, read the paper "Weijia Yao et al., A Simulation System Based on ROS and Gazebo for RoboCup Middle Size League, 2015". </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>kick ball mode FLY or RUN </td></tr>
@@ -785,7 +768,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>custom message callback queue thread </p>
+<p>Custom message callback queue thread. </p>
 
 </div>
 </div>
@@ -811,7 +794,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>ModelStates message CallBack function. </p>
+<p>ModelStates message callback function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">_msg</td><td>model_states msg shared pointer </td></tr>
@@ -869,7 +852,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Robot motion controlled by real-robot code;. </p>
+<p>Robot motion controlled by real-robot code; or controlled by a keyboard. </p>
 <p>provide an interface, e.g. use messages to control robot velocity, use services to control robot perform ball-shooting or ball-dribbling </p>
 
 </div>
@@ -914,32 +897,6 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a class="anchor" id="a97e67cc6fc94f1644ffb5f3e1a9fa918"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void NubotGazebo::nubot_test </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>For testing seprate functions. </p>
 
 </div>
 </div>
@@ -989,7 +946,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>custom service callback queue thread </p>
+<p>Custom service callback queue thread. </p>
 
 </div>
 </div>
@@ -1068,7 +1025,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Ball shooting service. </p>
+<p>Ball shooting service server function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">req</td><td>ball handle service request </td></tr>
@@ -1101,7 +1058,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Updating models' states. </p>
+<p>Updating models' states; By default, Gaussian noise is not added, but you can add it by changing the flag in this function. </p>
 <dl class="section return"><dt>Returns</dt><dd>1: updating model info success 0: not success </dd></dl>
 
 </div>
@@ -1127,7 +1084,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Update the controller. It is running every simulation iteration. [realtime factor] = [realtime update rate] * [max step size]. </p>
+<p>Update the controller. It is running every simulation iteration. So you can put your core code here.(in this code, either <a class="el" href="classgazebo_1_1NubotGazebo.html#aaa7835337bbfd120b5b85af40ccf47ae" title="Robot motion controlled by real-robot code; or controlled by a keyboard. ">nubot_be_control()</a> or <a class="el" href="classgazebo_1_1NubotGazebo.html#a991cc13697cbd1eaf855d21e4f5d78d2" title="Single nubot predefined autonomous motions. ">nubot_auto_control()</a>) </p>
 
 </div>
 </div>
@@ -1153,7 +1110,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>VelCmd message CallBack function. </p>
+<p>VelCmd message callback function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>VelCmd msg shared pointer </td></tr>
@@ -1173,26 +1130,6 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">bool gazebo::NubotGazebo::ball_decay_flag_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a69c9083b620e0914c1e05c491a72dee1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">nubot_common::BallInfo gazebo::NubotGazebo::ball_info_</td>
         </tr>
       </table>
   </td>
@@ -1273,46 +1210,6 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int gazebo::NubotGazebo::count_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a73e534a19457ba3ec98e117f1cfe839f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std_msgs::Float64MultiArray gazebo::NubotGazebo::debug_msgs_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab150ae2392ec6946dd48b595f4508395"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ros::Publisher gazebo::NubotGazebo::debug_pub_</td>
         </tr>
       </table>
   </td>
@@ -1633,26 +1530,6 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">double gazebo::NubotGazebo::force_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7583d7ea785ceae0a6e9126c743c9c3b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">nubot_common::FrontBallInfo gazebo::NubotGazebo::front_ball_info_</td>
         </tr>
       </table>
   </td>
@@ -2164,46 +2041,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a99a7b4ea5d236921e8851f9e1fada285"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">nubot_common::ObstaclesInfo gazebo::NubotGazebo::obstacles_info_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a61aa65532963d60511bd5b7cf6d2e2cf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">nubot_common::OminiVisionInfo gazebo::NubotGazebo::omin_vision_info_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a5a6b999a205a45e1778e0f4d75e325e0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -2253,26 +2090,6 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">dynamic_reconfigure::Server&lt;nubot_gazebo::NubotGazeboConfig&gt;* gazebo::NubotGazebo::reconfigureServer_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0b6c40da9694bc5645ea4abd0ee6825c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">nubot_common::RobotInfo gazebo::NubotGazebo::robot_info_</td>
         </tr>
       </table>
   </td>
@@ -2651,7 +2468,7 @@ Private Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jul 11 2015 11:39:08 for single_nubot_gazebo_ws by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Aug 18 2015 14:44:58 for single_nubot_gazebo by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

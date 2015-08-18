@@ -196,7 +196,7 @@ namespace gazebo{
 
         /// \brief Nubot dribbling ball function. The football follows nubot movement.
         /// \brief Three ways of ball-dribbling are provided: 1. Set ball pose;
-        /// \brief 2. Set tangential velocity; 3. Set secant velocity.
+        ///        2. Set tangential velocity; 3. Set secant velocity.
         void dribble_ball(void);
 
         /// \brief Nubot kicking ball. For more information, read the paper
@@ -244,7 +244,6 @@ namespace gazebo{
 
         /// \brief Update the controller. It is running every simulation iteration.
         ///        So you can put your core code here.(in this code, either nubot_be_control() or nubot_auto_control())
-        /// [realtime factor] = [realtime update rate] * [max step size].
         virtual void UpdateChild();
 
         /// \brief Model Initialization(after the Load function).

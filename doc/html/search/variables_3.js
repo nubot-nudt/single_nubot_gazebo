@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['debug_5fmsgs_5f',['debug_msgs_',['../classgazebo_1_1NubotGazebo.html#a73e534a19457ba3ec98e117f1cfe839f',1,'gazebo::NubotGazebo']]],
-  ['debug_5fpub_5f',['debug_pub_',['../classgazebo_1_1NubotGazebo.html#ab150ae2392ec6946dd48b595f4508395',1,'gazebo::NubotGazebo']]],
   ['derr',['dErr',['../classnubot_1_1PID.html#aa8ebb6b2cec73c281d83ac6882739320',1,'nubot::PID']]],
   ['desired_5frot_5fvector_5f',['desired_rot_vector_',['../classgazebo_1_1NubotGazebo.html#a385577ffa9cc48440e8047019d6e67f6',1,'gazebo::NubotGazebo']]],
   ['desired_5ftrans_5fvector_5f',['desired_trans_vector_',['../classgazebo_1_1NubotGazebo.html#ac515996ccf0c682a0ed88f00e401373d',1,'gazebo::NubotGazebo']]],
