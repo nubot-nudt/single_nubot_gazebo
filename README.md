@@ -46,6 +46,11 @@ This is less acurate than method (a) but better than method (c).
 (c). Setting ball tangential velocity. 
 This is the least accurate. If the robot moves fast, such as 3 m/s, it would probably lose control of the ball. However, this method achieves the best visual effect under low-speed conditon.
             
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+
 As for ball-dribbling, there are three ways for a robot to dribble a ball, i.e.  
 | Method                              |  Description |
 | ----------------------------------- | --------------------------------------------|
@@ -75,6 +80,7 @@ Finally, the robot rotates and translates with trajectory planning. That is, the
  3. ` $ rosrun nubot_gazebo nubot_teleop_keyboard`
  
 ## Part IV. Appendix
-  1. To launch an empty soccer field: $ roslaunch nubot_gazebo empty_field.launch
-  2. To launch the simulation world with rqt_plot of nubot or ball's velocity:
-        $ roslaunch nubot_gazebo sdf_nubot.launch plot:=true
+  1. To launch an empty soccer field:   
+  ` $ roslaunch nubot_gazebo empty_field.launch`
+  2. To launch the simulation world with rqt_plot of nubot or ball's velocity:  
+  ` $ roslaunch nubot_gazebo sdf_nubot.launch plot:=true`
