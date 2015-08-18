@@ -20,10 +20,7 @@
  * Date: Jun 2015
  */
 
-// NOTICE:
-// GAZEBO uses ISO units, i.e. length uses meters.
-// but other code uses cm as the length unit, so for publishing
-// and subscribing messages, length unit should be changed to 'cm'
+// NOTICE: GAZEBO uses ISO units, e.g.  meters for length.
 
 #include "nubot_gazebo.hh"
 #include "vector_angle.hh"
@@ -33,8 +30,6 @@
 #define ZERO_VECTOR math::Vector3::Zero
 #define PI 3.14159265
 
-#define CM2M_CONVERSION 0.01
-#define M2CM_CONVERSION 100
 const math::Vector3 kick_vector_nubot(1,0,0);    // Normalized vector from origin to kicking mechanism in nubot refercence frame.
                                                  // It is subject to nubot model file
 const double        goal_x = 9.0;
@@ -107,10 +102,6 @@ void NubotGazebo::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
       ROS_ERROR("link [%s] does not exist!", football_chassis_.c_str());
     }
   }    
-
-  // Publishers
-  debug_pub_ = rosnode_->advertise<std_msgs::Float64MultiArray>("debug",10);
-
   // Subscribers.
   ros::SubscribeOptions so1 = ros::SubscribeOptions::create<gazebo_msgs::ModelStates>(
     "/gazebo/model_states", 100, boost::bind( &NubotGazebo::model_states_CB,this,_1),
@@ -183,6 +174,31 @@ void NubotGazebo::Reset()
     traj_plan_rot_.Reset();
 }
 
+void NubotGazebo::UpdateChild()
+{
+    this->msgCB_lock_.lock(); // lock access to fields that are used in ROS message callbacks
+    this->srvCB_lock_.lock();
+
+    if(update_model_info())         // delay in model_states messages publishing
+    {                               // so after receiving model_states message, then nubot moves.
+       /********** EDIT BEGINS **********/
+
+        nubot_be_control();
+        // nubot_auto_control();
+
+       /**********  EDIT ENDS  **********/
+    }
+    if(ball_decay_flag_)
+    {
+        math::Vector3 free_ball_vel = football_state_.twist.linear;
+        ball_vel_decay(free_ball_vel, 0.3);
+    }
+    ball_decay_flag_ = true;
+
+    this->srvCB_lock_.unlock();
+    this->msgCB_lock_.unlock();
+}
+
 void NubotGazebo::message_queue_thread()
 {
   static const double timeout = 0.01;
@@ -245,8 +261,8 @@ void NubotGazebo::model_states_CB(const gazebo_msgs::ModelStates::ConstPtr& _msg
 
 bool NubotGazebo::update_model_info(void)
 {  
-    rosnode_->param("/nubot/distance_thres",    dribble_distance_thres_,    0.10);
-    rosnode_->param("/nubot/angle_thres",      dribble_angle_thres_,      0.01);
+    rosnode_->param("/nubot/distance_thres",    dribble_distance_thres_,    0.50);
+    rosnode_->param("/nubot/angle_thres",      dribble_angle_thres_,      30.0);
 
    if(ModelStatesCB_flag_)
    {
@@ -324,8 +340,8 @@ void NubotGazebo::vel_cmd_CB(const nubot_common::VelCmd::ConstPtr& cmd)
 {
    this->msgCB_lock_.lock();
 
-    Vx_cmd_ = cmd->Vx * CM2M_CONVERSION;
-    Vy_cmd_ = cmd->Vy * CM2M_CONVERSION;
+    Vx_cmd_ = cmd->Vx;
+    Vy_cmd_ = cmd->Vy;
     w_cmd_  = cmd->w;
     // The following calculation is based on robot body frame.
     math::Vector3 Vx_nubot = Vx_cmd_ * kick_vector_world_;
@@ -414,18 +430,18 @@ void NubotGazebo::kick_ball(int mode, double vel=20.0)
           a = -g/(2*vx*vx), c = 0, b = kick_goal_height/D + g*D/(2.0*vx*vx)
           mid_point coordinates:[-b/(2*a), (4a*c-b^2)/(4a) ]
        */
-        static const double kick_goal_height = goal_height - 0.22 - 0.02;      // FIXME: can be tuned
+        static const double kick_goal_height = goal_height - 0.22 - 0.02;                   // FIXME: can be tuned
         nubot::DPoint point1(nubot_state_.pose.position.x,nubot_state_.pose.position.y);
         nubot::DPoint point2(nubot_state_.pose.position.x + kick_vector_world_.x,
                              nubot_state_.pose.position.y + kick_vector_world_.y);
         nubot::DPoint point3(football_state_.pose.position.x,football_state_.pose.position.y);
         nubot::Line_ line1(point1, point2);
-        nubot::Line_ line2(1.0, 0.0, kick_vector_world_.x>0 ? -goal_x : goal_x);         // nubot::Line_(A,B,C);
+        nubot::Line_ line2(1.0, 0.0, kick_vector_world_.x>0 ? -goal_x : goal_x);            // nubot::Line_(A,B,C);
 
         nubot::DPoint crosspoint = line1.crosspoint(line2);
         double d = crosspoint.distance(point3);
         double vx_thres = d*sqrt(g/2/kick_goal_height);
-        double vx = vx_thres/2.0>vel ? vel : vx_thres/2.0;                                    // initial x velocity.CAN BE TUNED
+        double vx = vx_thres/2.0>vel ? vel : vx_thres/2.0;                                  // initial x velocity.CAN BE TUNED
         double b = kick_goal_height/d + g*d/(2.0*vx*vx);
 
         math::Vector3 kick_vector(vx*kick_vector_world_.x, vx*kick_vector_world_.y, b*vx);
@@ -455,7 +471,6 @@ bool NubotGazebo::get_is_hold_ball(void)
                     1 : 0;
     near_ball = nubot_football_vector_length_ <= dribble_distance_thres_ ?
                 1 : 0;
-    //ROS_INFO("near_ball:%d allign_ball:%d", near_ball, allign_ball);
     return (near_ball && allign_ball);
     #endif
 }
@@ -476,10 +491,9 @@ bool NubotGazebo::get_rot_vector(math::Vector3 target_point_world, double degree
     nubot_target_vector_norm.Normalize();
     kick_vector_world_.z = 0;
     angle_error_degree = get_angle_PI(kick_vector_world_,nubot_target_vector_norm)*(180/PI);
-    //ROS_INFO("%s angle_target error is %f", model_name_.c_str(), angle_error_degree);
 
     // STEP 2: return calculated rotation vector
-    if( angle_error_degree <= degree_thres/2.0 && angle_error_degree >= -degree_thres/2.0)      // FIXME. angle_err_deg_ can be tuned
+    if( angle_error_degree <= degree_thres/2.0 && angle_error_degree >= -degree_thres/2.0)
     {
         ROS_WARN("NO NEED FOR ROTATION!");
         traj_ang = 0.0;
@@ -511,17 +525,6 @@ bool NubotGazebo::get_rot_vector(math::Vector3 target_point_world, double degree
 
         is_finished = 0;
     }
-
-    #if 0
-    debug_msgs_.data.clear();
-    double data0 = traj_ang;
-    //nubot_state_.twist.angular = nubot_model_->GetWorldAngularVel();
-    //double data1 = nubot_state_.twist.angular.z*(180/PI);
-    debug_msgs_.data.push_back(data0);
-    //debug_msgs_.data.push_back(data1);
-    debug_pub_.publish(debug_msgs_);
-    #endif
-
     return is_finished;
 }
 
@@ -537,7 +540,7 @@ bool NubotGazebo::get_trans_vector(math::Vector3 target_point_world, double metr
     double nubot_target_vector_length = nubot_target_vector.GetLength ();
     ROS_INFO("%s nubot_target_vector_length: %f", model_name_.c_str(), nubot_target_vector_length);
 
-    if(nubot_target_vector_length <= metre_thres)    // FIXME. dribble_thres_ can be tuned
+    if(nubot_target_vector_length <= metre_thres)
     {
         ROS_WARN("NO NEED FOR TRANSLATION!");
         desired_trans_vector_ = ZERO_VECTOR;
@@ -566,14 +569,6 @@ bool NubotGazebo::get_trans_vector(math::Vector3 target_point_world, double metr
         desired_trans_vector_ = nubot_translation_vector;
         is_finished = 0;
     }
-
-    #if 0
-    debug_msgs_.data.clear();
-    double data0 = traj_lin;
-    debug_msgs_.data.push_back(data0);
-    debug_pub_.publish(debug_msgs_);
-    #endif
-
     return is_finished;
 }
 
@@ -653,31 +648,6 @@ void NubotGazebo::dribble_ball(void)
         set_ball_vel(perpencular_vel, ball_decay_flag_);
         last_current_time = world_->GetSimTime();
 #endif
-}
-
-void NubotGazebo::UpdateChild()
-{
-    this->msgCB_lock_.lock(); // lock access to fields that are used in ROS message callbacks
-    this->srvCB_lock_.lock();
-
-    if(update_model_info())         // delay in model_states messages publishing
-    {                               // so after receiving model_states message, then nubot moves.
-       /********** EDIT BEGINS **********/
-
-       // nubot_be_control();
-        nubot_auto_control();
-
-       /**********  EDIT ENDS  **********/
-    }
-    if(ball_decay_flag_)
-    {
-        math::Vector3 free_ball_vel = football_state_.twist.linear;
-        ball_vel_decay(free_ball_vel, 0.3);
-    }
-    ball_decay_flag_ = true;
-
-    this->srvCB_lock_.unlock();
-    this->msgCB_lock_.unlock();
 }
 
 void NubotGazebo::nubot_be_control(void)
@@ -856,100 +826,4 @@ void NubotGazebo::set_ball_vel(math::Vector3 &vel, bool &ball_decay_flag)
     football_model_->SetLinearVel(vel);
     ball_decay_flag_ = false;                        // setting linear vel to ball indicates it is not free rolling
                                                      // so no additional friction is applied now
-}
-
-void NubotGazebo::nubot_test(void)
-{
-static math::Vector3 nubot_trans_vector;
-static math::Vector3 nubot_rot_vector;
-// chase ball
-#if 0
-    get_trans_vector(football_state_.pose.position, dribble_distance_thres_);
-    //get_rot_vector  (football_state_.pose.position, dribble_angle_thres_);
-    desired_rot_vector_=ZERO_VECTOR;
-    nubot_locomotion(desired_trans_vector_, desired_rot_vector_);
-    //ROS_FATAL("is_hold_ball:%d",get_is_hold_ball());
-#endif
-// set nubot & football velocity
-#if 0
-    //nubot_locomotion(math::Vector3(1,0,0),ZERO_VECTOR);
-    ROS_FATAL("is hold ball? %d",get_is_hold_ball());
-    nubot_locomotion(ZERO_VECTOR, math::Vector3(0,0,1));
-    set_ball_vel(math::Vector3(1,0,0),ball_decay_flag_);
-#endif
-// locomotion
-#if 0
-    //desired_rot_vector_ = ZERO_VECTOR;
-    //get_trans_vector(football_state_.pose.position, dribble_distance_thres_);
-    desired_trans_vector_ = ZERO_VECTOR;
-    get_rot_vector(football_state_.pose.position, dribble_angle_thres_);
-    nubot_locomotion(desired_trans_vector_, desired_rot_vector_);
-#endif
-// dribble ball
-#if 1
-    nubot_locomotion(math::Vector3(0,0,0),math::Vector3(0,0,dribble_P_));
-//    set_ball_vel(nubot_state_.twist.linear, ball_decay_flag_);
-//    debug_msgs_.data.clear();
-//    double data0 = (nubot_model_->GetWorldLinearVel() - football_model_->GetWorldLinearVel()).GetLength();
-//    double data1 = (nubot_model_->GetWorldPose().pos - football_model_->GetWorldPose().pos).GetLength();
-//    debug_msgs_.data.push_back(data0);
-//    debug_msgs_.data.push_back(data1);
-//    debug_pub_.publish(debug_msgs_);
-    dribble_ball();
-    get_is_hold_ball();
-    //ROS_INFO("nubot-football distance:%f",nubot_football_vector_length_);
-#endif
-// kick ball
-#if 0
-    if(count_++ < 50)
-    {
-        kick_ball(FLY, kick_ball_force_);
-    //    kick_ball(math::Vector3(4.54,0.0,0.0), FLY, 2.0);
-    }
-#endif
-// get nubot stuck flag test
-#if 0
-    bool a=get_nubot_stuck();
-    ROS_FATAL("%d",a);
-    nubot_locomotion(math::Vector3(1,0,0),math::Vector3(0,0,0));
-#endif
-//for testing velocity decay
-#if 0
-    double dt=0.007, mu=0.1;
-    math::Vector3 vel(max_linear_vel_,0,0);
-    if(count_++<100)
-    {
-        set_ball_vel(vel,ball_decay_flag_);
-        nubot_model_->SetLinearVel(math::Vector3(max_linear_vel_,0,0));
-    }
-#endif
-// for testing time duration
-#if 0
-    last_update_time_ = world_->GetSimTime();
-    for(int i=0; i < 50; i++)
-    {
-        kick_ball(goal0_pos, mode, force);
-        ROS_INFO("%s is kicking ball!",model_name_.c_str());
-    }
-    common::Time current_time = world_->GetSimTime();
-    double seconds_since_last_update = ( current_time - last_update_time_ ).Double();
-    ROS_FATAL("kick time:%f",seconds_since_last_update);
-#endif
-// gaussian noise generator
-#if 0
-    debug_msgs_.data.clear();
-    double data0 = rand_.GetDblNormal();                      // mean=0, sigma=1;
-    debug_msgs_.data.push_back(data0);
-    debug_pub_.publish(debug_msgs_);
-#endif
-// vel pid
-#if 0
-    double actual_vel_len = nubot_model_->GetWorldLinearVel().GetLength();
-    nubot_locomotion(math::Vector3(1,0,0),ZERO_VECTOR);
-    double desired_vel_len = 1;
-    debug_msgs_.data.clear();
-    debug_msgs_.data.push_back(actual_vel_len);
-    debug_msgs_.data.push_back(desired_vel_len);
-    debug_pub_.publish(debug_msgs_);
-#endif
 }

@@ -15,7 +15,6 @@
 #include "nubot_common/VelCmd.h"
 #include "nubot_common/Shoot.h"
 #include "nubot_common/BallHandle.h"
-#include <std_msgs/Float64MultiArray.h>
 
 #include <ros/ros.h>
 #include <boost/thread.hpp>
@@ -81,7 +80,6 @@ namespace gazebo{
         ros::NodeHandle*            rosnode_;           // A pointer to the ROS node. 
         ros::Subscriber             ModelStates_sub_;
         ros::Subscriber             Velcmd_sub_;
-        ros::Publisher              debug_pub_;
         ros::ServiceServer          ballhandle_server_;
         ros::ServiceServer          shoot_server_;
 
@@ -98,7 +96,6 @@ namespace gazebo{
         model_state                 football_state_;
         common::Time                  receive_sim_time_;
         common::Time                  last_current_time_;
-        std_msgs::Float64MultiArray   debug_msgs_;
 
         math::Vector3               desired_rot_vector_;
         math::Vector3               desired_trans_vector_;
@@ -149,33 +146,34 @@ namespace gazebo{
         math::Rand                  rand_;
         dynamic_reconfigure::Server<nubot_gazebo::NubotGazeboConfig> *reconfigureServer_;
 
-        /// \brief ModelStates message CallBack function
+        /// \brief ModelStates message callback function
         /// \param[in] _msg model_states msg shared pointer
         void model_states_CB(const gazebo_msgs::ModelStates::ConstPtr& _msg);
 
-        /// \brief VelCmd message CallBack function
+        /// \brief VelCmd message callback function
         /// \param[in] cmd VelCmd msg shared pointer
         void vel_cmd_CB(const nubot_common::VelCmd::ConstPtr& cmd);
 
-        /// \brief Ball handling service
+        /// \brief Ball handling service server function
         /// \param[in] req ball handle service request
         /// \param[out] res ball handle service response
         bool ball_handle_control_service(nubot_common::BallHandle::Request  &req,
                                       nubot_common::BallHandle::Response &res);
 
-        /// \brief Ball shooting service
+        /// \brief Ball shooting service server function
         /// \param[in] req ball handle service request
         /// \param[out] res ball handle service response
         bool shoot_control_servive(nubot_common::Shoot::Request  &req,
                                  nubot_common::Shoot::Response &res);
 
-        /// \brief custom message callback queue thread
+        /// \brief Custom message callback queue thread
         void message_queue_thread();
 
-        /// \brief custom service callback queue thread
+        /// \brief Custom service callback queue thread
         void service_queue_thread();
 
-        /// \brief Updating models' states
+        /// \brief Updating models' states; By default, Gaussian noise is not added,
+        ///        but you can add it by changing the flag in this function.
         /// \return 1: updating model info success 0: not success
         bool update_model_info(void);
 
@@ -201,7 +199,8 @@ namespace gazebo{
         /// \brief 2. Set tangential velocity; 3. Set secant velocity.
         void dribble_ball(void);
 
-        /// \brief Nubot kicking ball
+        /// \brief Nubot kicking ball. For more information, read the paper
+        ///        "Weijia Yao et al., A Simulation System Based on ROS and Gazebo for RoboCup Middle Size League, 2015"
         /// \param[in] mode kick ball mode FLY or RUN
         /// \param[in] vel initial velocity of the ball kicked
         void kick_ball(int mode, double vel);   // including shooting the goal and passing the ball
@@ -213,18 +212,15 @@ namespace gazebo{
         /// \brief Single nubot predefined autonomous motions
         void nubot_auto_control(void);
 
-        /// \brief Robot motion controlled by real-robot code;
+        /// \brief Robot motion controlled by real-robot code; or controlled by a keyboard
         /// \brief provide an interface, e.g. use messages to control robot velocity,
         /// \brief use services to control robot perform ball-shooting or ball-dribbling
         void nubot_be_control(void);
 
-        /// \brief For testing seprate functions
-        void nubot_test(void);
-
         /// \brief dynmaic recofigure calback function
         void config(nubot_gazebo::NubotGazeboConfig &config, uint32_t level);
 
-        /// \brief a work-around for no rolling-friction in ODE
+        /// \brief a work-around for no rolling-friction in ODE. For more information, please read ODE manual.
         /// \param[in] vel football's current 3D velocity
         /// \param[in] mu friction coefficient
         void ball_vel_decay(math::Vector3 vel, double mu);
@@ -247,6 +243,7 @@ namespace gazebo{
         void Load(physics::ModelPtr _parent, sdf::ElementPtr /*_sdf*/) ;
 
         /// \brief Update the controller. It is running every simulation iteration.
+        ///        So you can put your core code here.(in this code, either nubot_be_control() or nubot_auto_control())
         /// [realtime factor] = [realtime update rate] * [max step size].
         virtual void UpdateChild();
 

@@ -13,7 +13,7 @@
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name"  value="$(find nubot_gazebo)/worlds/robocup15MSL.world"/>
     <arg name="verbose" 	value="true"/>
-    <arg name="paused"      value="true"/>
+    <arg name="paused"      value="false"/>
   </include>
 	
   <!--Use a bash script to spawn models. Configuration can be set in nubot_gazebo.yaml-->

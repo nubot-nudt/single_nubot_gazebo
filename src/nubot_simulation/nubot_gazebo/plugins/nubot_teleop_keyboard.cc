@@ -20,8 +20,7 @@
  * Date: Jun 2015
  */
 
-// NOTICE: EXCEPT KICK_BALL_VEL,
-// others use 'cm' as length unit
+// NOTICE: use 'm' as length unit
 
 #include <stdio.h>
 #include <signal.h>
@@ -43,9 +42,9 @@
 #define KEYCODE_RR 0x2e  // key "." rotate
 #define KEYCODE_SP 0x20    // key " " kick ball
 
-#define VELOCITY        100         // cm/s
+#define VELOCITY        1           // m/s
 #define OMEGA           1.0         // rad/s
-#define KICK_BALL_VEL   10.0        // NOTE: m/s
+#define KICK_BALL_VEL   5.0         // m/s
 
 using namespace std;
 
@@ -62,8 +61,8 @@ NubotTeleopKey::NubotTeleopKey():
     nh_.param("/field/robot_prefix",  robot_prefix_, std::string("bot"));
     std::string robot_name = robot_prefix_ + robot_num;
     // set param to loose the control requirements
-    nh_.setParam("/nubot/dribble_thres", 0.60);
-    nh_.setParam("/nubot/angle_err_deg", 15);
+    // nh_.setParam("/nubot/dribble_thres", 0.60);
+    // nh_.setParam("/nubot/angle_err_deg", 15);
 
     vel_pub = nh_.advertise<nubot_common::VelCmd>(robot_name + "/nubotcontrol/velcmd", 10);
     ballhandle_client_ =  nh_.serviceClient<nubot_common::BallHandle>(robot_name + "/BallHandle");
@@ -172,7 +171,6 @@ void NubotTeleopKey::keyLoop()
         vel_pub.publish(vel_cmd_);
 
         // rosservice call
-//        ROS_INFO("last_dribble: %d dribble:%d", last_dribble_flag_, dribble_flag_);
         if(last_dribble_flag_ != dribble_flag_)
         {
             nubot_common::BallHandle b;
