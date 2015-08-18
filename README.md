@@ -47,11 +47,11 @@ This is less acurate than method (a) but better than method (c).
 This is the least accurate. If the robot moves fast, such as 3 m/s, it would probably lose control of the ball. However, this method achieves the best visual effect under low-speed conditon.
             
 As for ball-dribbling, there are three ways for a robot to dribble a ball, i.e.  
-Method                              |  Description
------------------------------------ | --------------------------------------------
-(a) Setting ball pose continually.  | This is the most accurate one; nubot would hardly lose control of the ball, but the visual effect is not very good(the ball does not rotate).
-(b) Setting ball secant velocity.  | This is less acurate than method (a) but better than method (c). 
-(c) Setting ball tangential velocity. | This is the least accurate. If the robot moves fast, such as 3 m/s, it would probably lose control of the ball. However, this method achieves the best visual effect under low-speed condition.
+| Method                              |  Description |
+| ----------------------------------- | --------------------------------------------|
+| (a) Setting ball pose continually.  | This is the most accurate one; nubot would hardly lose control of the ball, but the visual effect is not very good(the ball does not rotate). |
+| (b) Setting ball secant velocity.  | This is less acurate than method (a) but better than method (c). |
+| (c) Setting ball tangential velocity. | This is the least accurate. If the robot moves fast, such as 3 m/s, it would probably lose control of the ball. However, this method achieves the best visual effect under low-speed condition. |
 **By default, we use method (c) for ball-dribbling.**
     
  As for Gaussian noise, **by default, Gaussian noise is NOT added**, but you can add it by changing the flag in nubot_gazebo.cc in function update_model_info();
@@ -63,7 +63,8 @@ Please read the paper "Weijia Yao et al., A Simulation System Based on ROS and G
  1. Go to the package root directory (single_nubot_gazebo)
  2. source the setup.bash file:   
    ` $ source devel/setup.bash`
- 3.  `$ roslaunch nubot_gazebo sdf_nubot.launch`  
+ 3.  `$ roslaunch nubot_gazebo sdf_nubot.launch`   
+ 
 >  **Note:** Every time you open a new terminal, you have to do step 2. You can also write this command into the ~/.bashrc file so that you don't have to source it every time.
 
 Finally, the robot rotates and translates with trajectory planning. That is, the robot accelerates at constant acceleration and stays at constant speed when it reaches the maximum velocity.
