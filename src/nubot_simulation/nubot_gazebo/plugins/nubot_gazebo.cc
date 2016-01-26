@@ -183,8 +183,8 @@ void NubotGazebo::UpdateChild()
     {                               // so after receiving model_states message, then nubot moves.
        /********** EDIT BEGINS **********/
 
-        nubot_be_control();
-        // nubot_auto_control();
+        // nubot_be_control();
+        nubot_auto_control();
 
        /**********  EDIT ENDS  **********/
     }
