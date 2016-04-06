@@ -72,3 +72,13 @@ Finally, the robot rotates and translates with trajectory planning. That is, the
   ` $ roslaunch nubot_gazebo empty_field.launch`
   2. To launch the simulation world with rqt_plot of nubot or ball's velocity:  
   ` $ roslaunch nubot_gazebo sdf_nubot.launch plot:=true`
+  
+  ## Q&A
+1. How to use Gazebo 5 in ROS Jade? (This code works in ROS jade)   
+    It seems there is a bug in the configuration of Gazebo 5.0 in ROS Jade. So the solution is as follows(steps):   
+        (a) `$ sudo gedit /opt/ros/jade/lib/gazebo_ros/gazebo`.    In this file, go to line 24 and delete the last '/'. So 'setup_path=$(pkg-config --variable=prefix gazebo)/share/gazebo/' is changed to 'setup_path=$(pkg-config --variable=prefix gazebo)/share/gazebo'.
+        You can read this link for more information: 'http://answers.ros.org/question/215796/problem-for-install-gazebo_ros_package/'
+        (b) Install Gazebo 5. 
+        `$ sudo apt-get install gazebo5`. If this fails, try to run the 'gazebo5_install.sh' in this directoy. Read for more information: 'http://answers.ros.org/question/217970/ros-jade-and-gazebo-50-migration-problem/'
+        (c) Optional: copy resource files to the new gazebo folder.
+        `$ sudo cp -r /usr/share/gazebo-5.0/* /usr/share/gazebo-5.1`
