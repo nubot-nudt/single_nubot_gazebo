@@ -3,7 +3,7 @@ This simulation system can simulate one robot soccer player for RoboCup Middle S
 
 # Recommended Operating Environment
 1. Ubuntu 14.04; 
-2. ROS Indigo; 
+2. ROS Indigo or ROS Jade.
 3. Gazebo 5.0 or 5.1;
 4. gazebo_ros_pkgs;
 
@@ -16,6 +16,25 @@ This simulation system can simulate one robot soccer player for RoboCup Middle S
 
     
 Other versions of Ubuntu, ROS or Gazebo may also work, but we have not tested yet.
+
+> **Update:**
+> It seems ` $ sudo apt-get install ros-indigo-gazebo5-ros-pkgs ros-indigo-gazebo5-ros-control` no longer works now. 
+> These packages may be moved to other places. I am not sure where they are now. :< Maybe you can find them.
+> A workaround is installing ROS Jade, which has gazebo_ros_pkgs in it; so you don't have to install it again. However, you > should do the following steps to fix some of the bugs in ROS Jade:
+    
+>    (a) `$ sudo gedit /opt/ros/jade/lib/gazebo_ros/gazebo` 
+> In this file, go to line 24 and delete the last '/'. So 
+> `setup_path=$(pkg-config --variable=prefix gazebo)/share/gazebo/` 
+> is changed to 
+> `setup_path=$(pkg-config --variable=prefix gazebo)/share/gazebo`
+>     You can read this link for more information:
+> "http://answers.ros.org/question/215796/problem-for-install-gazebo_ros_package/"
+>    (b) Install Gazebo 5. 
+>    `$ sudo apt-get install gazebo5` 
+> If this fails, try to run the 'gazebo5_install.sh' in this directoy. Read for more information
+> "http://answers.ros.org/question/217970/ros-jade-and-gazebo-50-migration-problem/"
+>   (c) Optional: copy resource files to the new gazebo folder.
+>    `$ sudo cp -r /usr/share/gazebo-5.0/* /usr/share/gazebo-5.1`
 
 # Complie
 1. Go to the package root directory (single_nubot_gazebo)
