@@ -88,14 +88,14 @@ namespace nubot
                 if (this == &_p)
                   return *this;
 
-                this->acceleration_ = _p.acceleration_;
-                this->distance_ = _p.distance_;
-                this->max_vel_ = _p.max_vel_;
-                this->time_ = _p.time_;
-                this->output_vel_ = _p.output_vel_;
-                this->output_disp_ = _p.output_disp_;
-                this->t_b_ = _p.t_b_;
-                this->t_f_ = _p.t_f_;
+                this->a_ = _p.a_;
+                this->dis_ = _p.dis_;
+                this->vm_ = _p.vm_;
+                this->t_ = _p.t_;
+                this->out_vel_ = _p.out_vel_;
+                this->out_disp_ = _p.out_disp_;
+                this->tb_ = _p.tb_;
+                this->tf_ = _p.tf_;
 
                 this->Reset();
                 return *this;
@@ -105,28 +105,28 @@ namespace nubot
       public: void Reset();
 
       /// \brief constant acceleration of the parabolic curve.
-      private: double acceleration_;
+      private: double a_;
 
       /// \brief total distance to travel
-      private: double distance_;
+      private: double dis_;
 
       /// \brief maximum velocity; the const velocity of the stragight line trajectory
-      private: double max_vel_;
+      private: double vm_;
 
       /// \brief total time starting from 0
-      private: double time_;
+      private: double t_;
 
       /// \brief output velocity of the trajectory
-      private: double output_vel_;
+      private: double out_vel_;
 
       /// \brief output displacement of the trajectory
-      private: double output_disp_;
+      private: double out_disp_;
 
       /// \brief end time of the first parabolic curve
-      private: double t_b_;
+      private: double tb_;
 
       /// \brief end time of the trajectory
-      private: double t_f_;
+      private: double tf_;
 
       /// \brief flag to indicate if there is a straight line part
       private: bool is_straight_line_;
