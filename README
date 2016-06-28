@@ -88,3 +88,12 @@ A workaround is installing ROS Jade, which has gazebo_ros_pkgs in it; so you don
         $ sudo apt-get install gazebo5. If this fails, try to run the 'gazebo5_install.sh' in this directoy. Read for more information "http://answers.ros.org/question/217970/ros-jade-and-gazebo-50-migration-problem/"
         (c) Optional: copy resource files to the new gazebo folder.
         $ sudo cp -r /usr/share/gazebo-5.0/* /usr/share/gazebo-5.1
+2. How to install gazebo 7.1 and gazebo_ros_pkgs with ROS Jade?
+(1) Install ROS jade;
+(2) Go to gazebosim.org and install gazebo 7.0;
+(3) Go to the github website and download the repository of gazebo_ros_pkgs on the branch 'kinetic-devel':
+	$ git clone https://github.com/ros-simulation/gazebo_ros_pkgs.git -b kinetic-devel
+(4) Go to gazebo_ros_pkgs and create src/, put all other files or folders inside src/. Then inside src/, run
+	$ catkin_init_workspace
+(5) $ cd ../
+	$ catkin_make -DCMAKE_INSTALL_PREFIX=/opt/ros/jade install
