@@ -4,7 +4,6 @@ var searchData=
   ['max',['max',['../namespacenubot__gazebo_1_1cfg_1_1NubotGazeboConfig.html#a6be2164301dd0e0a270aae0bb05784b6',1,'nubot_gazebo.cfg.NubotGazeboConfig.max()'],['../NubotGazeboConfig_8dox.html#a55c9de72d9f3630abdf51bfe39c191dd',1,'max():&#160;NubotGazeboConfig.dox']]],
   ['max_5fangular_5fvel_5f',['max_angular_vel_',['../classgazebo_1_1NubotGazebo.html#ae9da5f6a1c7b5624dbf6bb20a2819d40',1,'gazebo::NubotGazebo']]],
   ['max_5flinear_5fvel_5f',['max_linear_vel_',['../classgazebo_1_1NubotGazebo.html#a67f7850c63c5dd6fe80694c9a426e5ec',1,'gazebo::NubotGazebo']]],
-  ['max_5fvel_5f',['max_vel_',['../classnubot_1_1ParaTrajPlanning.html#a28df46426852cc6627549f800512d8cf',1,'nubot::ParaTrajPlanning']]],
   ['message_5fcallback_5fqueue_5fthread_5f',['message_callback_queue_thread_',['../classgazebo_1_1NubotGazebo.html#ae985620428222dd9b1b5f507339119b8',1,'gazebo::NubotGazebo']]],
   ['message_5fqueue_5f',['message_queue_',['../classgazebo_1_1NubotGazebo.html#a7186c914f81602db7bd347b940794bbf',1,'gazebo::NubotGazebo']]],
   ['messages_5fstr',['messages_str',['../namespacenubot__common-genmsg-context.html#a9d82d20e4ffa677c598751d6630dc734',1,'nubot_common-genmsg-context']]],

@@ -94,7 +94,7 @@ Finally, the robot rotates and translates with trajectory planning. That is, the
   2. To launch the simulation world with rqt_plot of nubot or ball's velocity:  
   ` $ roslaunch nubot_gazebo sdf_nubot.launch plot:=true`
   
-  ## Q&A
+## Q&A
 1. How to use Gazebo 5 in ROS Jade? (This code works in ROS jade)   
     It seems there is a bug in the configuration of Gazebo 5.0 in ROS Jade. So the solution is as follows(steps):   
         (a) `$ sudo gedit /opt/ros/jade/lib/gazebo_ros/gazebo`.    In this file, go to line 24 and delete the last '/'. So 'setup_path=$(pkg-config --variable=prefix gazebo)/share/gazebo/' is changed to 'setup_path=$(pkg-config --variable=prefix gazebo)/share/gazebo'.
@@ -108,13 +108,13 @@ Finally, the robot rotates and translates with trajectory planning. That is, the
 (1) Install ROS jade;   
 (2) Go to gazebosim.org and install gazebo 7.0;   
 (3) Go to the github website and download the repository of gazebo_ros_pkgs on the branch 'kinetic-devel':   
-`	$ git clone https://github.com/ros-simulation/gazebo_ros_pkgs.git -b kinetic-devel`
+`	$ git clone https://github.com/ros-simulation/gazebo_ros_pkgs.git -b kinetic-devel`   
 (4) Go to gazebo_ros_pkgs and create src/, put all other files or folders inside src/.    
- ` $ cd src/`
- ` $ catkin_init_workspace`
+ ` $ cd src/`   
+ ` $ catkin_init_workspace`   
 (5) To install dependencies, run    
-` $ cd ../../`
-` $ rosdep install --from-paths gazebo_ros_pkgs --ignore-src --rosdistro=ROSDISTRO`. Here, ROSDISTRO is the distribution of your ROS,    such as jade or kinetic.   
+` $ cd ../../`   
+` $ rosdep install --from-paths gazebo_ros_pkgs --ignore-src --rosdistro=ROSDISTRO`. Here, ROSDISTRO is the distribution of your ROS, such as jade or kinetic.   
 (6) Then install all these files to /opt/ros/jade   
-` $ cd gazeo_ros_pkgs`
-`	$ catkin_make -DCMAKE_INSTALL_PREFIX=/opt/ros/jade install`
+` $ cd gazeo_ros_pkgs`   
+`	$ catkin_make -DCMAKE_INSTALL_PREFIX=/opt/ros/jade install`   

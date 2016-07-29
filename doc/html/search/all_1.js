@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['a_5f',['A_',['../classnubot_1_1Line__.html#a78d6e6771b3542aeac3092b28c6f8477',1,'nubot::Line_']]],
+  ['a_5f',['A_',['../classnubot_1_1Line__.html#a78d6e6771b3542aeac3092b28c6f8477',1,'nubot::Line_::A_()'],['../classnubot_1_1ParaTrajPlanning.html#aead29a555fdbaaa222a0d2366cdfa468',1,'nubot::ParaTrajPlanning::a_()']]],
   ['abstract_5fparameters',['abstract_parameters',['../classnubot__gazebo_1_1NubotGazeboConfig_1_1AbstractGroupDescription.html#a7b4dc2fe6c727cf2342b8260ab417d8f',1,'nubot_gazebo::NubotGazeboConfig::AbstractGroupDescription']]],
   ['abstractgroupdescription',['AbstractGroupDescription',['../classnubot__gazebo_1_1NubotGazeboConfig_1_1AbstractGroupDescription.html',1,'nubot_gazebo::NubotGazeboConfig']]],
   ['abstractgroupdescription',['AbstractGroupDescription',['../classnubot__gazebo_1_1NubotGazeboConfig_1_1AbstractGroupDescription.html#a2217ac91bbf64c6ae383ad9d4d218632',1,'nubot_gazebo::NubotGazeboConfig::AbstractGroupDescription']]],
@@ -10,7 +10,6 @@ var searchData=
   ['abstractparamdescription',['AbstractParamDescription',['../classnubot__gazebo_1_1NubotGazeboConfig_1_1AbstractParamDescription.html#a501c4e1235512fdf8f094093a1745873',1,'nubot_gazebo::NubotGazeboConfig::AbstractParamDescription']]],
   ['abstractparamdescriptionconstptr',['AbstractParamDescriptionConstPtr',['../classnubot__gazebo_1_1NubotGazeboConfig.html#a25b01b079fefa04f8d43df7d664dedac',1,'nubot_gazebo::NubotGazeboConfig']]],
   ['abstractparamdescriptionptr',['AbstractParamDescriptionPtr',['../classnubot__gazebo_1_1NubotGazeboConfig.html#a4d37d54db4abe22adcf2c85ad73cd80b',1,'nubot_gazebo::NubotGazeboConfig']]],
-  ['acceleration_5f',['acceleration_',['../classnubot_1_1ParaTrajPlanning.html#a10b79c4418036406d7fa1b897372c3a2',1,'nubot::ParaTrajPlanning']]],
   ['add_5fmsec',['add_msec',['../classnubot_1_1Time.html#a5ebb3c5af685232553a0082917df7fa2',1,'nubot::Time']]],
   ['add_5fsec',['add_sec',['../classnubot_1_1Time.html#ad8378fc95552047a2bf8cf84fda57822',1,'nubot::Time']]],
   ['add_5fusec',['add_usec',['../classnubot_1_1Time.html#a13a0b0af1dc127c67f2533df6827a5fd',1,'nubot::Time']]],
@@ -21,7 +20,7 @@ var searchData=
   ['angle_2ehpp',['Angle.hpp',['../Angle_8hpp.html',1,'']]],
   ['angle_5f',['angle_',['../classnubot_1_1PPoint__.html#a649d2bc79c800be47c0a7a97de34b3b2',1,'nubot::PPoint_']]],
   ['angular',['angular',['../structgazebo_1_1Twist.html#a7d2c10e52786244a11d3b94486313cd0',1,'gazebo::Twist']]],
-  ['architecture_5fid',['ARCHITECTURE_ID',['../CMakeCCompilerId_8c.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID():&#160;CMakeCCompilerId.c'],['../CMakeCXXCompilerId_8cpp.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID():&#160;CMakeCXXCompilerId.cpp']]],
+  ['architecture_5fid',['ARCHITECTURE_ID',['../2_88_812_82_2CompilerIdC_2CMakeCCompilerId_8c.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID():&#160;CMakeCCompilerId.c'],['../2_88_812_82_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID():&#160;CMakeCXXCompilerId.cpp'],['../3_80_82_2CompilerIdC_2CMakeCCompilerId_8c.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID():&#160;CMakeCCompilerId.c'],['../3_80_82_2CompilerIdCXX_2CMakeCXXCompilerId_8cpp.html#aba35d0d200deaeb06aee95ca297acb28',1,'ARCHITECTURE_ID():&#160;CMakeCXXCompilerId.cpp']]],
   ['args',['args',['../namespace__setup__util.html#ac67cb2d93e0636936bcbeb363e2c87c3',1,'_setup_util']]],
   ['assignment',['assignment',['../namespace__setup__util.html#a7983d4ea2ecdeaf54e133950d8a76e77',1,'_setup_util']]]
 ];

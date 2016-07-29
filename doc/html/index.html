@@ -82,8 +82,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h1>Recommended Operating Environment</h1>
 <ol type="1">
 <li>Ubuntu 14.04;</li>
-<li>ROS Indigo;</li>
-<li>Gazebo 5.0 or 5.1;</li>
+<li>ROS Indigo or ROS Jade.</li>
+<li>Gazebo 5.0 or 5.1 or 7.1;</li>
 <li>gazebo_ros_pkgs;</li>
 </ol>
 <blockquote class="doxtable">
@@ -97,6 +97,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </blockquote>
 <p><code>$ sudo apt-get install ros-indigo-gazebo5-ros-pkgs ros-indigo-gazebo5-ros-control</code></p>
 <p>Other versions of Ubuntu, ROS or Gazebo may also work, but we have not tested yet.</p>
+<blockquote class="doxtable">
+<p><b>Update:</b> It seems <code>$ sudo apt-get install ros-indigo-gazebo5-ros-pkgs ros-indigo-gazebo5-ros-control</code> no longer works now. These packages may be moved to other places. You can checkout <a href="https://github.com/ros-simulation/gazebo_ros_pkgs.git,">https://github.com/ros-simulation/gazebo_ros_pkgs.git,</a> download and install this package. A workaround is installing ROS Jade, which has gazebo_ros_pkgs in it; so you don't have to install it again. However, you should do the following steps to fix some of the bugs in ROS Jade:</p>
+<p></p>
+</blockquote>
+<blockquote class="doxtable">
+<p>(a) <code>$ sudo gedit /opt/ros/jade/lib/gazebo_ros/gazebo</code> In this file, go to line 24 and delete the last '/'. So <code>setup_path=$(pkg-config --variable=prefix gazebo)/share/gazebo/</code> is changed to <code>setup_path=$(pkg-config --variable=prefix gazebo)/share/gazebo</code> You can read this link for more information: "http://answers.ros.org/question/215796/problem-for-install-gazebo_ros_package/" (b) Install Gazebo 5. <code>$ sudo apt-get install gazebo5</code> If this fails, try to run the 'gazebo5_install.sh' in this directoy. Read for more information "http://answers.ros.org/question/217970/ros-jade-and-gazebo-50-migration-problem/" (c) Optional: copy resource files to the new gazebo folder. <code>$ sudo cp -r /usr/share/gazebo-5.0/* /usr/share/gazebo-5.1</code></p>
+<p></p>
+</blockquote>
 <h1>Complie</h1>
 <ol type="1">
 <li>Go to the package root directory (single_nubot_gazebo)</li>
@@ -146,12 +154,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h2>Part IV. Appendix</h2>
 <ol type="1">
 <li>To launch an empty soccer field: <code>$ roslaunch <a class="el" href="namespacenubot__gazebo.html">nubot_gazebo</a> empty_field.launch</code></li>
-<li>To launch the simulation world with rqt_plot of nubot or ball's velocity: <code>$ roslaunch <a class="el" href="namespacenubot__gazebo.html">nubot_gazebo</a> sdf_nubot.launch plot:=true</code> </li>
+<li>To launch the simulation world with rqt_plot of nubot or ball's velocity: <code>$ roslaunch <a class="el" href="namespacenubot__gazebo.html">nubot_gazebo</a> sdf_nubot.launch plot:=true</code></li>
+</ol>
+<h2>Q&amp;A</h2>
+<ol type="1">
+<li>How to use Gazebo 5 in ROS Jade? (This code works in ROS jade) It seems there is a bug in the configuration of Gazebo 5.0 in ROS Jade. So the solution is as follows(steps): (a) <code>$ sudo gedit /opt/ros/jade/lib/gazebo_ros/gazebo</code>. In this file, go to line 24 and delete the last '/'. So 'setup_path=$(pkg-config &ndash;variable=prefix gazebo)/share/gazebo/' is changed to 'setup_path=$(pkg-config &ndash;variable=prefix gazebo)/share/gazebo'. You can read this link for more information: '<a href="http://answers.ros.org/question/215796/problem-for-install-gazebo_ros_package/'">http://answers.ros.org/question/215796/problem-for-install-gazebo_ros_package/'</a> (b) Install Gazebo 5. <code>$ sudo apt-get install gazebo5</code>. If this fails, try to run the 'gazebo5_install.sh' in this directoy. Read for more information: '<a href="http://answers.ros.org/question/217970/ros-jade-and-gazebo-50-migration-problem/'">http://answers.ros.org/question/217970/ros-jade-and-gazebo-50-migration-problem/'</a> (c) Optional: copy resource files to the new gazebo folder. <code>$ sudo cp -r /usr/share/gazebo-5.0/* /usr/share/gazebo-5.1</code></li>
+<li>How to install gazebo 7.1 and gazebo_ros_pkgs with ROS Jade? (1) Install ROS jade; (2) Go to gazebosim.org and install gazebo 7.0; (3) Go to the github website and download the repository of gazebo_ros_pkgs on the branch 'kinetic-devel': <code>$ git clone <a href="https://github.com/ros-simulation/gazebo_ros_pkgs.git">https://github.com/ros-simulation/gazebo_ros_pkgs.git</a> -b kinetic-devel</code> (4) Go to gazebo_ros_pkgs and create src/, put all other files or folders inside src/. <code>$ cd src/</code> <code>$ catkin_init_workspace</code> (5) To install dependencies, run <code>$ cd ../../</code> <code>$ rosdep install --from-paths gazebo_ros_pkgs --ignore-src --rosdistro=ROSDISTRO</code>. Here, ROSDISTRO is the distribution of your ROS, such as jade or kinetic. (6) Then install all these files to /opt/ros/jade <code>$ cd gazeo_ros_pkgs</code> <code>$ catkin_make -DCMAKE_INSTALL_PREFIX=/opt/ros/jade install</code> </li>
 </ol>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Aug 18 2015 16:15:14 for single_nubot_gazebo by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jul 30 2016 00:26:42 for single_nubot_gazebo by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

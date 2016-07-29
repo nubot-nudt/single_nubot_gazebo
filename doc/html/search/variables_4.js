@@ -10,7 +10,7 @@ var searchData=
   ['desired_5frot_5fvector_5f',['desired_rot_vector_',['../classgazebo_1_1NubotGazebo.html#a385577ffa9cc48440e8047019d6e67f6',1,'gazebo::NubotGazebo']]],
   ['desired_5ftrans_5fvector_5f',['desired_trans_vector_',['../classgazebo_1_1NubotGazebo.html#ac515996ccf0c682a0ed88f00e401373d',1,'gazebo::NubotGazebo']]],
   ['dgain',['dGain',['../classnubot_1_1PID.html#a4e2f4ef996f5fd9628686b5111e3d0d3',1,'nubot::PID']]],
-  ['distance_5f',['distance_',['../classnubot_1_1ParaTrajPlanning.html#a2c2401906a5ad585d91bedb46261302a',1,'nubot::ParaTrajPlanning']]],
+  ['dis_5f',['dis_',['../classnubot_1_1ParaTrajPlanning.html#ad9194b95798860fc68350949e76c1728',1,'nubot::ParaTrajPlanning']]],
   ['doublepi_5fconstant',['DOUBLEPI_CONSTANT',['../Angle_8hpp.html#a4905c99479389ce0d4a7e656b42ba799',1,'Angle.hpp']]],
   ['dribble_5fangle_5fthres_5f',['dribble_angle_thres_',['../classgazebo_1_1NubotGazebo.html#ab012e0229172416640558cf2746a0974',1,'gazebo::NubotGazebo']]],
   ['dribble_5fd_5f',['dribble_D_',['../classgazebo_1_1NubotGazebo.html#a727079312e073df8799e1a385ac8da00',1,'gazebo::NubotGazebo']]],
