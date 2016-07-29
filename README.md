@@ -4,7 +4,7 @@ This simulation system can simulate one robot soccer player for RoboCup Middle S
 # Recommended Operating Environment
 1. Ubuntu 14.04; 
 2. ROS Indigo or ROS Jade.
-3. Gazebo 5.0 or 5.1;
+3. Gazebo 5.0 or 5.1 or 7.1;
 4. gazebo_ros_pkgs;
 
 > **NOTE:** 
@@ -19,7 +19,8 @@ Other versions of Ubuntu, ROS or Gazebo may also work, but we have not tested ye
 
 > **Update:**   
 > It seems ` $ sudo apt-get install ros-indigo-gazebo5-ros-pkgs ros-indigo-gazebo5-ros-control` no longer works now.    
-> These packages may be moved to other places. I am not sure where they are now. :< Maybe you can find them.   
+> These packages may be moved to other places. You can checkout https://github.com/ros-simulation/gazebo_ros_pkgs.git, 
+> download and install this package.
 > A workaround is installing ROS Jade, which has gazebo_ros_pkgs in it; so you don't have to install it again. However,   
 > you should do the following steps to fix some of the bugs in ROS Jade:    
     
@@ -104,16 +105,16 @@ Finally, the robot rotates and translates with trajectory planning. That is, the
         `$ sudo cp -r /usr/share/gazebo-5.0/* /usr/share/gazebo-5.1`
 
 2. How to install gazebo 7.1 and gazebo_ros_pkgs with ROS Jade?
-
 (1) Install ROS jade;
-
 (2) Go to gazebosim.org and install gazebo 7.0;
-
 (3) Go to the github website and download the repository of gazebo_ros_pkgs on the branch 'kinetic-devel':
-	$ git clone https://github.com/ros-simulation/gazebo_ros_pkgs.git -b kinetic-devel
-
-(4) Go to gazebo_ros_pkgs and create src/, put all other files or folders inside src/. Then inside src/, run
-	$ catkin_init_workspace
-
-(5) $ cd ../
-	$ catkin_make -DCMAKE_INSTALL_PREFIX=/opt/ros/jade install
+`	$ git clone https://github.com/ros-simulation/gazebo_ros_pkgs.git -b kinetic-devel`
+(4) Go to gazebo_ros_pkgs and create src/, put all other files or folders inside src/. 
+ ` $ cd src/`
+ ` $ catkin_init_workspace`
+(5) To install dependencies, run 
+` $ cd ../../`
+` $ rosdep install --from-paths gazebo_ros_pkgs --ignore-src --rosdistro=ROSDISTRO`. Here, ROSDISTRO is the distribution of your ROS, such as jade or kinetic.
+(6) Then install all these files to /opt/ros/jade
+` $ cd gazeo_ros_pkgs`
+`	$ catkin_make -DCMAKE_INSTALL_PREFIX=/opt/ros/jade install`
