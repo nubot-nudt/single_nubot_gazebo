@@ -1,28 +1,30 @@
 # Description 
-This simulation system can simulate one robot soccer player for RoboCup Middle Size League. It can be adapted for other purposes.
+This simulation system can simulate ONE robot soccer player for RoboCup Middle Size League. It can be adapted for other purposes. Note that this package is only designed for demonstration. If you want to test multi-robot cooperation strategies, please refer to another repository: [gazebo_visual](https://github.com/nubot-nudt/gazebo_visual). However, the tutorial regarding compliation and etc. is still useful.   
+
+Please read the paper ["Weijia Yao et al., A Simulation System Based on ROS and Gazebo for RoboCup Middle Size League, 2015"](https://www.trustie.net/organizations/23/publications) for more information.
 
 # Recommended Operating Environment
 1. Ubuntu 14.04; 
 2. ROS Indigo or ROS Jade.
 3. Gazebo 5.0 or 5.1 or 7.1;
-4. gazebo_ros_pkgs;
+4. gazebo_ros_pkgs;   
+Other versions of Ubuntu, ROS or Gazebo may also work, but we have not tested yet.
 
 > **NOTE:** 
 > If you choose "desktop-full" install of ROS Indigo, there is a Gazebo 2.0 included initially. In order to install Gazebo 5.0/5.1, you should first remove Gazebo 2.0 by running:   
+(!Note!. The following command is dangerous; it might delete the whole ROS, so please do it carefully or you may find other ways to delete gazebo2)   
 ` $ sudo apt-get remove gazebo2* `  
 > Then you should be able to install Gazebo 5.0 now. To install gazebo_ros_pkgs compatible with Gazebo
 > 5.0/5.1, run this command:  
 ` $ sudo apt-get install ros-indigo-gazebo5-ros-pkgs ros-indigo-gazebo5-ros-control`
 
-    
-Other versions of Ubuntu, ROS or Gazebo may also work, but we have not tested yet.
 
 > **Update:**   
 > It seems ` $ sudo apt-get install ros-indigo-gazebo5-ros-pkgs ros-indigo-gazebo5-ros-control` no longer works now.    
-> These packages may be moved to other places. You can checkout https://github.com/ros-simulation/gazebo_ros_pkgs.git, 
-> download and install this package.
-> A workaround is installing ROS Jade, which has gazebo_ros_pkgs in it; so you don't have to install it again. However,   
-> you should do the following steps to fix some of the bugs in ROS Jade:    
+> These packages may be moved to other places. You can checkout   
+> https://github.com/ros-simulation/gazebo_ros_pkgs.git, and download and install this package.   
+> A workaround is installing ROS Jade, which has gazebo_ros_pkgs with it; so you don't have to install it again. 
+> However, you should do the following steps to fix some of the bugs in ROS Jade related to Gazebo:    
     
 >    (a) `$ sudo gedit /opt/ros/jade/lib/gazebo_ros/gazebo`    
 > In this file, go to line 24 and delete the last '/'. So    
@@ -48,9 +50,11 @@ Other versions of Ubuntu, ROS or Gazebo may also work, but we have not tested ye
     $ catkin_init_workspace
     $ cd ..
     ```
-3. $ ./configure
+3. $ ./configure   
+You may encounter errors related to Git. In this case, if you did not use Git, you could just ignore these errors.   
 4. $ catkin_make --pkg nubot_common
-5. $ catkin_make
+5. $ catkin_make   
+You may have to run catkin_make for several times until 100% success. If this does not work, please contact us.   
 
 # Tutorials
 
@@ -70,7 +74,6 @@ Method  | Description
     
  As for Gaussian noise, **by default, Gaussian noise is NOT added**, but you can add it by changing the flag in nubot_gazebo.cc in function update_model_info();
          
-Please read the paper "Weijia Yao et al., A Simulation System Based on ROS and Gazebo for RoboCup Middle Size League, 2015" for more information.
  
 ## Part II. Single robot automatic movement
  The robot will do motions according to states transfer graph. Steps are as follows:
@@ -114,7 +117,12 @@ Finally, the robot rotates and translates with trajectory planning. That is, the
  ` $ catkin_init_workspace`   
 (5) To install dependencies, run    
 ` $ cd ../../`   
-` $ rosdep install --from-paths gazebo_ros_pkgs --ignore-src --rosdistro=ROSDISTRO`. Here, ROSDISTRO is the distribution of your ROS, such as jade or kinetic.   
+` $ rosdep install --from-paths gazebo_ros_pkgs --ignore-src --rosdistro=ROSDISTRO`. Here, ROSDISTRO is the distribution of your ROS, such as jade or kinetic.     
 (6) Then install all these files to /opt/ros/jade   
 ` $ cd gazeo_ros_pkgs`   
 `	$ catkin_make -DCMAKE_INSTALL_PREFIX=/opt/ros/jade install`   
+> You may encounter problems such as 'cannot copu _setup_util.py to /opt/ros/...', if that is the case, you are supposed
+> to run this command as the root. For example,    
+> ` $ sudo su`   
+> ` $ source /opt/ros/jade/setup.bash`   
+> ` $ rosdep install --from-paths gazebo_ros_pkgs --ignore-src --rosdistro=ROSDISTRO`   
