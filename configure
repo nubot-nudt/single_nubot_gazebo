@@ -1,6 +1,4 @@
 #!/bin/bash
-# change those cfg files to be executables
-find . -type f -name *.cfg -exec sudo chmod +x '{}' \;
-find . -type f -name *.sh -exec sudo chmod +x '{}' \;
 
-
+# change those .cfg and .sh files to be executables
+find src/ -type f \( -name '*.cfg' -o -name '*.sh' \) -exec sudo chmod +x '{}' \;
