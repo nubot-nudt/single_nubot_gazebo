@@ -1,7 +1,14 @@
-# Description 
+# Description   
 This simulation system can simulate ONE robot soccer player for RoboCup Middle Size League. It can be adapted for other purposes. Note that this package is only designed for demonstration. If you want to test multi-robot cooperation strategies, please refer to another repository: [gazebo_visual](https://github.com/nubot-nudt/gazebo_visual). However, the tutorial regarding compliation and etc. is still useful.   
 
-Please read the paper ["Weijia Yao et al., A Simulation System Based on ROS and Gazebo for RoboCup Middle Size League, 2015"](https://www.trustie.net/organizations/23/publications) for more information.
+Please read the paper ["Weijia Yao et al., A Simulation System Based on ROS and Gazebo for RoboCup Middle Size League, 2015"](https://www.trustie.net/organizations/23/publications) for more information.   
+   
+- Maintainer status: maintained
+- Maintainer: Weijia Yao <abcgarden@126.com>
+- Author: Weijia Yao <abcgarden@126.com>
+- License: Apache
+- Bug / feature tracker: https://github.com/nubot-nudt/single_nubot_gazebo/issues
+- Source: git https://github.com/nubot-nudt/single_nubot_gazebo (branch: master)   
 
 # Recommended Operating Environment
 1. Ubuntu 14.04; 
