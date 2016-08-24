@@ -261,9 +261,6 @@ void NubotGazebo::model_states_CB(const gazebo_msgs::ModelStates::ConstPtr& _msg
 
 bool NubotGazebo::update_model_info(void)
 {  
-    rosnode_->param("/nubot/distance_thres",    dribble_distance_thres_,    0.50);
-    rosnode_->param("/nubot/angle_thres",      dribble_angle_thres_,      30.0);
-
    if(ModelStatesCB_flag_)
    {
         receive_sim_time_ = world_->GetSimTime();
