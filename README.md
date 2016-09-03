@@ -60,9 +60,7 @@ Read for more [information](http://answers.ros.org/question/217970/ros-jade-and-
     ```
 3. $ ./configure   
 You may encounter errors related to Git. In this case, if you did not use Git, you could just ignore these errors.   
-4. $ catkin_make --pkg nubot_common
-5. $ catkin_make   
-You may have to run catkin_make for several times until 100% success. If this does not work, please contact us.   
+4. $ catkin_make   
 
 # Tutorials
 
@@ -97,9 +95,12 @@ Finally, the robot rotates and translates with trajectory planning. That is, the
 ## Part III. Keyboad control robot movement
  1. In nubot_gazebo.cc, comment "nubot_auto_control();" and uncomment "nubot_be_control();" in function UpdateChild().
  2. Compile again and follow steps 1-3 listed in Part II.
- 3. ` $ rosrun nubot_gazebo nubot_teleop_keyboard`
+ 3. ` $ rosrun nubot_gazebo nubot_teleop_keyboard`   
+
+## Part IV. NubotGazebo API   
+For the detailed infomation and usage of the NubotGazebo class, please refer to the doc/ folder. 
  
-## Part IV. Appendix
+## Part V. Appendix
   1. To launch an empty soccer field:   
   ` $ roslaunch nubot_gazebo empty_field.launch`
   2. To launch the simulation world with rqt_plot of nubot or ball's velocity:  
