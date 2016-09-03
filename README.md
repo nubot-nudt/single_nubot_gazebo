@@ -90,7 +90,9 @@ Method  | Description
  
 >  **Note:** Every time you open a new terminal, you have to do step 2. You can also write this command into the ~/.bashrc file so that you don't have to source it every time.
 
-Finally, the robot rotates and translates with trajectory planning. That is, the robot accelerates at constant acceleration and stays at constant speed when it reaches the maximum velocity.
+Finally, the robot rotates and translates with trajectory planning. That is, the robot accelerates at constant acceleration and stays at constant speed when it reaches the maximum velocity.    
+   
+You could click the 'Edit->Reset World' from the menu (or press ctrl-shift-r) to reset the simulation world and the robot would do the basic motions again. 
  
 ## Part III. Keyboad control robot movement
  1. In nubot_gazebo.cc, comment "nubot_auto_control();" and uncomment "nubot_be_control();" in function UpdateChild().
