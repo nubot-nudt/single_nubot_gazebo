@@ -22,7 +22,8 @@
 <!--  /////////////////// Below are debug tools ////////////////////////////  -->    
 
   <!--Use rqt_console to watch info from gazebo-->
-  <node name="rqt_console" pkg="rqt_console" type="rqt_console" args="--on-top"/>
+<!--  <node name="rqt_console" pkg="rqt_console" type="rqt_console"/> --> 
+
   <!-- plot model velocity if "plot" is true -->  
   <arg name="plot"  default="false"/>
   <group if="$(arg plot)">

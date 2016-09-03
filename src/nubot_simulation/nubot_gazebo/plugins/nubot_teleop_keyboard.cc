@@ -63,10 +63,15 @@ NubotTeleopKey::NubotTeleopKey():
     // set param to loose the control requirements
     // nh_.setParam("/nubot/dribble_thres", 0.60);
     // nh_.setParam("/nubot/angle_err_deg", 15);
-
+#if 0
     vel_pub = nh_.advertise<nubot_common::VelCmd>(robot_name + "/nubotcontrol/velcmd", 10);
     ballhandle_client_ =  nh_.serviceClient<nubot_common::BallHandle>(robot_name + "/BallHandle");
     shoot_client_ = nh_.serviceClient<nubot_common::Shoot>(robot_name + "/Shoot");
+#else
+    vel_pub = nh_.advertise<nubot_common::VelCmd>("/nubotcontrol/velcmd", 10);
+    ballhandle_client_ =  nh_.serviceClient<nubot_common::BallHandle>("/BallHandle");
+    shoot_client_ = nh_.serviceClient<nubot_common::Shoot>("/Shoot");
+#endif
 }
 
 void NubotTeleopKey::keyLoop()
@@ -219,8 +224,8 @@ void quit(int sig)
 
 int main(int argc, char** argv)
 {
-  cout<<"Input robot number"<<endl;
-  cin>>robot_num;
+//  cout<<"Input robot number"<<endl;
+//  cin>>robot_num;
 
   ros::init(argc, argv, "teleop_nubot");
   NubotTeleopKey teleop_nubot;

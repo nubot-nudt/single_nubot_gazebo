@@ -70,7 +70,7 @@ void ParaTrajPlanning::Init(double _accel, double _max_vel, double _distance)
         tb_ = sqrt(dis_ / a_);
         tf_ = 2.0 * tb_;
     }
-    ROS_FATAL("Traj Initialization!! max_vel^2=%f a(%f)*d(%f)=%f is_straight_line=%d tf:%f",
+    ROS_INFO("Traj Initialization!! max_vel^2=%f a(%f)*d(%f)=%f is_straight_line=%d tf:%f",
               vm_ * vm_ ,
               a_,dis_,
               a_ * dis_,

@@ -78,8 +78,7 @@ Method  | Description
 (c) Setting ball tangential velocity |  This is the least accurate. If the robot moves fast, such as 3 m/s, it would probably lose control of the ball. However, this method achieves the best visual effect under low-speed condition.
 **By default, we use method (c) for ball-dribbling.**
     
- As for Gaussian noise, **by default, Gaussian noise is NOT added**, but you can add it by changing the flag in nubot_gazebo.cc in function update_model_info();
-         
+ As for Gaussian noise, **by default, Gaussian noise is NOT added**, but you can add it by changing the flag in the function update_model_info() in the file nubot_gazebo.cc;
  
 ## Part II. Single robot automatic movement
  The robot will do motions according to states transfer graph. Steps are as follows:
@@ -92,7 +91,11 @@ Method  | Description
 
 Finally, the robot rotates and translates with trajectory planning. That is, the robot accelerates at constant acceleration and stays at constant speed when it reaches the maximum velocity.    
    
-You could click the 'Edit->Reset World' from the menu (or press ctrl-shift-r) to reset the simulation world and the robot would do the basic motions again. 
+You could click the 'Edit->Reset World' from the menu (or press ctrl-shift-r) to reset the simulation world and the robot would do the basic motions again.    
+   
+When the robot finally reaches its last state: HOME, you could run   
+` $ rosrun nubot_gazebo nubot_teleop_keyboard`   
+to control the movement of the robot.   
  
 ## Part III. Keyboad control robot movement
  1. In nubot_gazebo.cc, comment "nubot_auto_control();" and uncomment "nubot_be_control();" in function UpdateChild().
@@ -100,7 +103,7 @@ You could click the 'Edit->Reset World' from the menu (or press ctrl-shift-r) to
  3. ` $ rosrun nubot_gazebo nubot_teleop_keyboard`   
 
 ## Part IV. NubotGazebo API   
-For the detailed infomation and usage of the NubotGazebo class, please refer to the doc/ folder. 
+For the detailed infomation and usage of the NubotGazebo class, please refer to the [doc/](https://github.com/nubot-nudt/single_nubot_gazebo/tree/master/doc) folder. 
  
 ## Part V. Appendix
   1. To launch an empty soccer field:   

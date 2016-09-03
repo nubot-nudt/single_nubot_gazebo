@@ -77,7 +77,8 @@ void NubotGazebo::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
       << "Load the Gazebo system plugin 'libnubot_gazebo.so' in the gazebo_ros package)");
     return;
   }
-  this->rosnode_ = new ros::NodeHandle(this->robot_namespace_);
+  //this->rosnode_ = new ros::NodeHandle(this->robot_namespace_);
+  this->rosnode_ = new ros::NodeHandle("/");
   
   // load parameters
   rosnode_->param("/football/name",          football_name_,            std::string("football"));
@@ -535,7 +536,7 @@ bool NubotGazebo::get_trans_vector(math::Vector3 target_point_world, double metr
     math::Vector3 nubot_target_vector = target_point_world - nubot_state_.pose.position;
 
     double nubot_target_vector_length = nubot_target_vector.GetLength ();
-    ROS_INFO("%s nubot_target_vector_length: %f", model_name_.c_str(), nubot_target_vector_length);
+    //ROS_INFO("%s nubot_target_vector_length: %f", model_name_.c_str(), nubot_target_vector_length);
 
     if(nubot_target_vector_length <= metre_thres)
     {
@@ -546,7 +547,7 @@ bool NubotGazebo::get_trans_vector(math::Vector3 target_point_world, double metr
     }
     else
     {
-        ROS_INFO("last_target:%f %f, target_point:%f %f",last_target_point.x, last_target_point.y, target_point_world.x, target_point_world.y);
+        //ROS_INFO("last_target:%f %f, target_point:%f %f",last_target_point.x, last_target_point.y, target_point_world.x, target_point_world.y);
         if((last_target_point - target_point_world).GetLength() > 0.5)                 // CAN TUNE
         {
             last_current_time = world_->GetSimTime();
@@ -653,13 +654,13 @@ void NubotGazebo::nubot_be_control(void)
         {
             if(dribble_flag_)       // dribble_flag_ is set by BallHandle service
             {
-                 ROS_ERROR("%s is calling dribble_ball() in nubot_gazebo",model_name_.c_str());
+                 //ROS_ERROR("%s is calling dribble_ball() in nubot_gazebo",model_name_.c_str());
                  dribble_ball();
             }
 
             if(shot_flag_)
             {
-                ROS_ERROR("%s is callling kick_ball() in nubot_gazebo",model_name_.c_str());
+                //ROS_ERROR("%s is callling kick_ball() in nubot_gazebo",model_name_.c_str());
                 kick_ball(mode_, force_);
                 shot_flag_ = false;
             }
@@ -675,7 +676,6 @@ void NubotGazebo::nubot_auto_control(void)
     static math::Vector3 target_point;
     static math::Vector3 nubot_trans_vector;
     static math::Vector3 nubot_rot_vector;
-    mode_ = FLY;   // kick_ball mode
 
     if(nubot_state_.pose.position.z > 0.01)          // if nubot is in the air, let it drop.
         return;
@@ -697,7 +697,7 @@ void NubotGazebo::nubot_auto_control(void)
             else
             {
                state_ = DRIBBLE_BALL;
-               ROS_ERROR("Go to next DRIBBLE_BALL state");
+               ROS_INFO("Go to next DRIBBLE_BALL state");
             }
             break; //CHASE_BALL break
        }
@@ -726,7 +726,7 @@ void NubotGazebo::nubot_auto_control(void)
                    {
                        desired_trans_vector_ = ZERO_VECTOR;
                        desired_rot_vector_ = ZERO_VECTOR;
-                       ROS_FATAL("Go to next state: ROTATE_BALL");
+                       ROS_INFO("Go to next state: ROTATE_BALL");
                        sub_state_ = ROTATE_BALL;
                    }
                    break;
@@ -743,6 +743,7 @@ void NubotGazebo::nubot_auto_control(void)
                         desired_trans_vector_ = ZERO_VECTOR;
                         desired_rot_vector_ = ZERO_VECTOR;
                         sub_state_ = MOVE_BALL;
+                        ROS_INFO("Go to next state: KICK_BALL");
                         state_ = KICK_BALL;
                    }
                    break;
@@ -757,17 +758,20 @@ void NubotGazebo::nubot_auto_control(void)
        case KICK_BALL:
        {
            target_point = right_goal;
-           switch(mode_)
+           switch(FLY)
            {
            case RUN:
                 kick_ball(RUN, kick_ball_vel_);
+                ROS_INFO("Go to next state: RESET");
                 state_ = RESET;
                break;
            case FLY:
                kick_ball(FLY, kick_ball_vel_);
+               ROS_INFO("Go to next state: RESET");
                state_ = RESET;
                break;
            default:
+               ROS_INFO("Go to next state: RESET");
                state_ = RESET;
                break;
            }
@@ -781,16 +785,20 @@ void NubotGazebo::nubot_auto_control(void)
                 nubot_locomotion(desired_trans_vector_, ZERO_VECTOR);
             }
             else
+            {
+                ROS_INFO("Go to next state: HOME. Now you could run \' rosrun nubot_gazbeo nubot_teleop_keyboard \' to control the robot");
                 state_ = HOME;
+            }
             break;
         }
        case HOME:
        {
-            nubot_locomotion(ZERO_VECTOR,ZERO_VECTOR);
+            //nubot_locomotion(ZERO_VECTOR,ZERO_VECTOR);
+            nubot_be_control();
             break;
        }
     }   
-    ROS_INFO("%s state_: %d, sub_state_:%d", model_name_.c_str(), state_, sub_state_);
+    //ROS_INFO("%s state_: %d, sub_state_:%d", model_name_.c_str(), state_, sub_state_);
 }   
 
 
