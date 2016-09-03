@@ -8,13 +8,11 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   geometry_msgs
-  sensor_msgs
   gazebo_ros  
   nubot_common
   dynamic_reconfigure
 )
 
-find_package(Protobuf REQUIRED)
 find_package(gazebo REQUIRED)
 find_package(Boost REQUIRED COMPONENTS system)
 
@@ -38,7 +36,7 @@ catkin_package(
 add_library(nubot_gazebo plugins/nubot_gazebo.cc
                          plugins/nubot_PID.cc
                          plugins/parabolic_transition_planning.cc)
-target_link_libraries(nubot_gazebo ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${PROTOBUF_LIBRARIES} pthread)
+target_link_libraries(nubot_gazebo ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES})
 add_dependencies(nubot_gazebo ${PROJECT_NAME}_gencfg)
 add_dependencies(nubot_gazebo ${catkin_EXPORTED_TARGETS})
 
