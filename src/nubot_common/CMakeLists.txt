@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 
-add_message_files(DIRECTORY msgs FILES 
+add_message_files(DIRECTORY msg FILES 
 VelCmd.msg
 )
 
