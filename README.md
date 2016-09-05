@@ -115,7 +115,10 @@ to control the movement of the robot.
 ## Part IV. NubotGazebo API   
 For the detailed infomation and usage of the NubotGazebo class, please refer to the [doc/](https://github.com/nubot-nudt/single_nubot_gazebo/tree/master/doc) folder. 
  
-## Part V. Appendix
+## Part V. How you could use it to do more stuff
+The main purpose of the simulation system is to test multi-robot collaboration algorithm. So to achieve this purpose, you need to know how to control the movement of each robot in the simulation. As you have experienced in turotial Part III to control a robot by keyboard, you could read its source code and make use of the topic publishing and service calling. In a word, if you want to control the movement of  the robots, publish velocity commands on the topic "/nubotcontrol/velcmd". If you want the robot the dribble the ball, after it is close enough to the ball, call the ROS service named "/BallHandle" and kick the ball by calling the service named"/Shoot" . The types and definitions of theses topics and services are presented in Part I.
+
+## Part VI. Appendix
   1. To launch an empty soccer field:   
   ` $ roslaunch nubot_gazebo empty_field.launch`
   2. To launch the simulation world with rqt_plot of nubot or ball's velocity:  
