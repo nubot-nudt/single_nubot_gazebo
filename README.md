@@ -1,7 +1,8 @@
+![state_transfer][pic1]
 # Description   
-This simulation system can simulate ONE robot soccer player for RoboCup Middle Size League. It can be adapted for other purposes. Note that this package is only designed for demonstration. If you want to test multi-robot cooperation strategies, please refer to another repository: [gazebo_visual](https://github.com/nubot-nudt/gazebo_visual). However, the tutorial regarding compliation and etc. is still useful.   
+This simulation system can simulate ONE robot soccer player for RoboCup Middle Size League. It can be adapted for other purposes. Note that this package is only designed for demonstration. If you want to test multi-robot cooperation strategies, please refer to another repository: [gazebo_visual][1]. However, the tutorial regarding compliation and etc. is still useful.   
 
-Please read the paper ["Weijia Yao et al., A Simulation System Based on ROS and Gazebo for RoboCup Middle Size League, 2015"](https://www.trustie.net/organizations/23/publications) for more information.   
+Please read the paper ["Weijia Yao et al., A Simulation System Based on ROS and Gazebo for RoboCup Middle Size League, 2015"][2] for more information.   
    
 - Maintainer status: maintained
 - Maintainer: Weijia Yao <abcgarden@126.com>
@@ -27,7 +28,7 @@ If you choose "desktop-full" install of ROS Indigo, there is a Gazebo 2.0 includ
 Then you should be able to install Gazebo 5.0 now. To install gazebo_ros_pkgs compatible with Gazebo
 5.0/5.1, run this command:   
 ` $ sudo apt-get install ros-indigo-gazebo5-ros-pkgs ros-indigo-gazebo5-ros-control`   
-HOWEVER,    if the above command does now work, these packages may be moved to other places. You can check out [gazebo_ros](https://github.com/ros-simulation/gazebo_ros_pkgs.git) and download and install the correct version.   
+HOWEVER,    if the above command does now work, these packages may be moved to other places. You can check out [gazebo_ros][3] and download and install the correct version.   
  - 2. If you decide to use **ROS Jade** with **gazebo 5.0 or 5.1**, read the following   
 ROS Jade has gazebo_ros_pkgs with it; so you don't have to install gazebo_ros_pkgs again.  
 However, you should do the following steps to fix some of the bugs in ROS Jade related to Gazebo:        
@@ -36,15 +37,15 @@ In this file, go to line 24 and delete the last '/'. So
 `setup_path=$(pkg-config --variable=prefix gazebo)/share/gazebo/`    
 is changed to     
 `setup_path=$(pkg-config --variable=prefix gazebo)/share/gazebo`    
-You can read this link for more [information](http://answers.ros.org/question/215796/problem-for-install-gazebo_ros_package/)   
+You can read this link for more [information][4]   
   -  (b) Install Gazebo 5.     
    `$ sudo apt-get install gazebo5`     
-If this fails, try to run the ['gazebo5_install.sh'](https://github.com/nubot-nudt/simatch/blob/master/gazebo5_install.sh)(obtained from Gazebo's official website).    
-Read for more [information](http://answers.ros.org/question/217970/ros-jade-and-gazebo-50-migration-problem/)   
+If this fails, try to run the ['gazebo5_install.sh'][5](obtained from Gazebo's official website).    
+Read for more [information][6]   
   -  (c) Optional: copy resource files to the new gazebo folder.    
    `$ sudo cp -r /usr/share/gazebo-5.0/* /usr/share/gazebo-5.1`      
  - 3. If you decide to use **ROS Jade** with **gazebo 7.1**, read the following,    
-  -  (1) Install gazebo 7.0 by running [gazebo7_install.sh](https://github.com/nubot-nudt/simatch/blob/master/gazebo7_install.sh)(obtained from Gazebo's official website);      
+  -  (1) Install gazebo 7.0 by running [gazebo7_install.sh][7](obtained from Gazebo's official website);      
   -  (2) Then run this in the terminal:   
   -  ` $ sudo apt-get install ros-jade-gazebo7-ros-pkgs`   
 
@@ -113,10 +114,10 @@ to control the movement of the robot.
  3. ` $ rosrun nubot_gazebo nubot_teleop_keyboard`   
 
 ## Part IV. NubotGazebo API   
-For the detailed infomation and usage of the NubotGazebo class, please refer to the [doc/](https://github.com/nubot-nudt/single_nubot_gazebo/tree/master/doc) folder. 
+For the detailed infomation and usage of the NubotGazebo class, please refer to the [doc/][8] folder. 
  
 ## Part V. How you could use it to do more stuff
-The main purpose of the simulation system is to test multi-robot collaboration algorithm. So to achieve this purpose, you need to know how to control the movement of each robot in the simulation. As you have experienced in turotial Part III to control a robot by keyboard, you could read its [source code](https://github.com/nubot-nudt/single_nubot_gazebo/blob/master/src/nubot_simulation/nubot_gazebo/plugins/nubot_teleop_keyboard.cc) and make use of the topic publishing and service calling. In a word, if you want to control the movement of  the robots, publish velocity commands on the topic "/nubotcontrol/velcmd". If you want the robot to dribble the ball, after it is close enough to the ball, call the ROS service named "/BallHandle" and kick the ball by calling the service named"/Shoot" . The types and definitions of theses topics and services are presented in Part I.
+The main purpose of the simulation system is to test multi-robot collaboration algorithm. So to achieve this purpose, you need to know how to control the movement of each robot in the simulation. As you have experienced in turotial Part III to control a robot by keyboard, you could read its [source code][9] and make use of the topic publishing and service calling. In a word, if you want to control the movement of  the robots, publish velocity commands on the topic "/nubotcontrol/velcmd". If you want the robot to dribble the ball, after it is close enough to the ball, call the ROS service named "/BallHandle" and kick the ball by calling the service named"/Shoot" . The types and definitions of theses topics and services are presented in Part I.
 
 ## Part VI. Appendix
   1. To launch an empty soccer field:   
@@ -125,3 +126,15 @@ The main purpose of the simulation system is to test multi-robot collaboration a
   ` $ roslaunch nubot_gazebo sdf_nubot.launch plot:=true`
   
 ## Q&A
+
+
+[1]: https://github.com/nubot-nudt/gazebo_visual
+[2]: https://www.trustie.net/organizations/23/publications
+[3]: https://github.com/ros-simulation/gazebo_ros_pkgs.git
+[4]: http://answers.ros.org/question/215796/problem-for-install-gazebo_ros_package/
+[5]: gazebo5_install.sh
+[6]: http://answers.ros.org/question/217970/ros-jade-and-gazebo-50-migration-problem/
+[7]: https://github.com/nubot-nudt/simatch/blob/master/gazebo7_install.sh
+[8]: doc
+[9]: src/nubot_simulation/nubot_gazebo/plugins/nubot_teleop_keyboard.cc
+[pic1]: pics/state_transfer.png
