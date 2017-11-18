@@ -5,8 +5,8 @@ This simulation system can simulate ONE robot soccer player for RoboCup Middle S
 Please read the paper ["Weijia Yao et al., A Simulation System Based on ROS and Gazebo for RoboCup Middle Size League, 2015"][2] for more information.   
    
 - Maintainer status: maintained
-- Maintainer: Weijia Yao <abcgarden@126.com>
-- Author: Weijia Yao <abcgarden@126.com>
+- Maintainer: Weijia Yao <weijia.yao.nudt <AT> gmail.com>
+- Author: Weijia Yao <weijia.yao.nudt <AT> gmail.com>
 - License: Apache
 - Bug / feature tracker: https://github.com/nubot-nudt/single_nubot_gazebo/issues
 - Source: git https://github.com/nubot-nudt/single_nubot_gazebo (branch: master)   
